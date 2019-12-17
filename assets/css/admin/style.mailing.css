@@ -1,0 +1,23 @@
+table.filter-table
+{
+	width: 100%;
+}
+
+table.filter-table ul.filter-list
+{
+	margin: 0px;
+}
+
+table.filter-table ul.filter-list > li
+{
+}
+
+table.filter-table > tbody > tr > th, table.filter-table > tbody > tr > td
+{
+	padding: 10px 0px;
+}
+
+table.filter-table > tbody > tr:not(:last-of-type) > th, table.filter-table > tbody > tr:not(:last-of-type) > td
+{
+	border-bottom: 1px #c0c0c0 solid;
+}

@@ -1,0 +1,48 @@
+.main-content
+{
+	font-size: 14px;
+}
+
+.main-content img
+{
+	float: right;
+	margin: 5px 20px;
+}
+
+.box
+{
+	border: 2px #309DE9 solid;
+	margin: 20px auto;
+	display: block;
+	padding: 10px 25px;
+}
+
+.content-group
+{
+	overflow: auto;
+	margin: 20px 0px;
+}
+
+.content-group .content-group-title
+{
+	font-size: 17px;
+	font-weight: bold;
+	margin: 10px 0px;
+}
+
+.subtitle
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.ident-list-item
+{
+	display: inline-block;
+	padding: 0px 7px;
+}
+
+.ident-list-item:not(:last-child)
+{
+	border-right: 1px black solid;
+}

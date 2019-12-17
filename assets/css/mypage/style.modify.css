@@ -1,0 +1,19 @@
+.member-info-table
+{}
+
+.member-info-table input[type=text]
+{
+	margin: 2px 0px;
+}
+
+.member-info-table tr > th
+{
+	width: 120px;
+	padding-left: 20px;
+	text-align: left;
+}
+
+#member_pw_confirm[readonly=readonly]
+{
+	background-color: #c0c0c0;
+}

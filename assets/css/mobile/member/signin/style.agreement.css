@@ -1,0 +1,52 @@
+.icon-box
+{
+	text-align: center;
+	margin: 20px 10px;
+}
+
+#footer
+{
+	position: fixed;
+	bottom: 0px;
+	text-align: center;
+	width: 100%;
+	background-color: white;
+	padding: 15px 0px;
+}
+
+.ui-content
+{
+	margin-bottom: 3vh;
+}
+
+textarea
+{
+	height: 33vh !important;
+	overflow-y: scroll !important;
+	resize: none;
+}
+
+.agreement-title
+{
+	font-size: 5vw;
+	margin: 0px 10px;
+}
+
+.readonly-textbox
+{
+	margin-top: 1vh;
+	margin-bottom: 5vh;
+}
+
+.default-button
+{
+	width: 150px;
+	max-width: 30vw;
+}
+
+.default-button > .ui-link
+{
+	padding: 15px 0px;
+	text-shadow: none;
+	color: white !important;
+}

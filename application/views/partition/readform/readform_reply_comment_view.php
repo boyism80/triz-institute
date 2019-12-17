@@ -1,0 +1,1 @@
+<span class="comment-button" onclick="reply(<?php echo $comment['idx']; ?>)">댓글</span>

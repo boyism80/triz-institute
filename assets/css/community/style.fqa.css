@@ -1,0 +1,36 @@
+.fqa-list
+{}
+
+.fqa-list > li
+{
+	border-bottom: 1px #4a4a4a solid;
+}
+
+.fqa-list > li:first-child
+{
+	border-top: 1px #4a4a4a solid;
+}
+
+
+.fqa-list > li > .fqa-item
+{
+	overflow: auto;
+	margin: 10px 0px;
+}
+
+.fqa-list > li img
+{
+	float: left;
+	padding-right: 8px;
+}
+
+.fqa-list > li span
+{
+	float: left;
+}
+
+.fqa-list > li > .question > span
+{
+	font-weight: bold;
+	cursor: pointer;
+}

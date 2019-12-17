@@ -1,0 +1,103 @@
+.intro-box
+{
+	position: relative;
+	margin-top: 5vw;
+	border-top: 0.5vh #c0c0c0 solid;
+}
+
+.intro-box .title
+{
+	position: absolute;
+	top: -4vw;
+	display: inline-block;
+	background-color: #f9f9f9;
+	font-size: 5vw;
+}
+
+.intro-box .desc
+{
+	padding: 5vw 0px;
+}
+
+.content-box .top
+{
+	text-align: center;
+}
+
+.content-box .top > img
+{
+	width: 50px;
+}
+
+.content-box .bottom
+{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.content-box .bottom ul
+{
+
+}
+
+.content-box .bottom ul > li
+{
+	margin: 10px 0px;
+}
+
+.content-box .bottom ul > li > .ans
+{
+	font-weight: bold;
+}
+
+.content-box .bottom ul > li > .from
+{
+	color: gray;
+}
+
+.subject-image-list
+{
+	display: inline-block;
+}
+
+.subject-image-list > li
+{
+	display: inline-block;
+}
+
+.subject-image-list > li > .subject
+{
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 0px;
+	background-color: #309DE9;
+	color: white;
+	font-size: 2.5vw;
+}
+
+.subject-image-list > li > img
+{
+	width: 100%;
+	height: 35vw;
+	padding: 5px 10px;
+	border: 1px #c0c0c0 solid;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+.content-box .title
+{
+	font-size: 4vw;
+}
+
+.content-box .subtitle
+{
+	font-weight: bold;
+}
+
+.case-list
+{
+	margin: 10px 0px 15px 0px;
+}

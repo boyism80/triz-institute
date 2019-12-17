@@ -1,0 +1,45 @@
+.ui-content
+{
+	margin: 10px 15px;
+}
+
+#map
+{
+	height: 500px;
+	border: 5px #c0c0c0 solid;
+	margin-bottom: 40px;
+}
+
+.content-box
+{
+	margin: 40px 0px;
+}
+
+.content-box .title
+{
+	font-weight: bold;
+	font-size: 16px;
+}
+
+ul.desc
+{
+	list-style: none;
+}
+
+.desc
+{
+	padding: 0px 20px;
+}
+
+.subtitle
+{
+	background-color: rgba(192, 192, 192, 0.2);
+	padding: 7px 5px;
+	margin: 15px 0px;
+	color: gray;
+}
+
+.desc-value
+{
+	font-size: 14px;
+}

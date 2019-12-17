@@ -1,0 +1,58 @@
+.ui-content
+{
+	padding: 0px;
+	position: fixed;
+	bottom: 10px;
+	top: 80px;
+	overflow-y: scroll;
+	width: 100%;
+	height: 56%;
+}
+
+.ec-list
+{
+	padding: 0px 5px;
+}
+
+.ec-list > li > a
+{
+	border: 1px #c0c0c0 solid;
+	border-radius: 5px;
+	margin: 10px 0px;
+	padding: 10px 2vw;
+	display: block;
+}
+
+.ec-list .title
+{
+	font-weight: bold;
+	color: black;
+	margin-bottom: 5px;
+}
+
+.ec-list .date
+{
+	font-size: 2.6vw;
+	color: #a0a0a0;
+	font-weight: normal;
+}
+
+form
+{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+form *
+{
+	font-size: 14px;
+}
+
+#create
+{
+	display: block;
+	border-radius: 3px;
+	padding: 10px 0px;
+	cursor: pointer;
+}

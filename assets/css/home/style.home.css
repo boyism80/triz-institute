@@ -1,0 +1,388 @@
+*
+{
+	margin: 0px auto;
+	padding: 0px;
+	text-decoration: none;
+	list-style: none;
+}
+
+a:link, a:visited
+{
+	color: inherit;
+	text-decoration: none;
+}
+
+img
+{
+	border: none;
+}
+
+input[type=checkbox]
+{
+	border: none;
+}
+
+.menutab
+{
+	position: relative;
+	padding: 0px 10px;
+}
+
+#basetab-ex
+{
+	color: white;
+	float: none;
+	text-align: right;
+	padding: 15px 15px 10px 0px;
+	margin: 0px;
+}
+
+#menutab-ex
+{
+	position: initial;
+	float: right;
+	margin-top: 10px;
+}
+
+#logo
+{
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	left: -30px;
+}
+
+#logo img
+{
+	width: 150px;
+}
+
+#wrap
+{
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin: 0px auto;
+	position: relative;
+}
+
+.section
+{
+	margin: 0px auto;
+	position: relative;
+	overflow: auto;
+}
+
+.header .section
+{
+	width: 1200px;
+	overflow: visible;
+}
+
+.content .section
+{
+	width: 1200px;
+}
+
+.slogan
+{
+	position: absolute;
+	display: inline-block;
+	color: white;
+	top: 200px;
+	font-family: 'Nanum Gothic';
+}
+
+.slogan .title
+{
+	font-weight: bold;
+	font-size: 35px;
+	margin-bottom: 10px;
+}
+
+.slogan .subtitle
+{
+	font-weight: bold;
+	font-size: 23px;
+	margin-bottom: 15px;
+}
+
+.slogan .desc
+{
+	font-size: 15px;
+}
+
+.header
+{
+	position: relative;
+	height: 600px;
+}
+
+.content
+{
+	margin: 20px 0px 40px 0px;
+}
+
+.content .item-wrap
+{
+	display: inline-block;
+	margin-right: 40px;
+	vertical-align: top;
+}
+
+.content .item-wrap:last-child
+{
+	margin-right: 0px;
+}
+
+.content .item-wrap[preview-tab]
+{
+	display: inline-block;
+	margin-top: 20px;
+	padding-right: 15px;
+	width: 455px;
+}
+
+.content .item-wrap[banner]
+{
+	display: inline-block;
+	margin-top: 0px;
+}
+
+.content .item-wrap[banner] .state
+{
+
+}
+
+.content .item-wrap[banner] .state .list
+{
+	text-align: right;
+}
+
+.content .item-wrap[banner] .state .list .item
+{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-right: 3px;
+	background-color: #cdcdcd;
+	cursor: pointer;
+}
+
+.content .item-wrap[banner] .state .list .item[current]
+{
+	background-color: #4bacff;
+}
+
+.content .item-wrap[contact]
+{
+	display: inline-block;
+	width: 13%;
+	overflow: hidden;
+	margin-right: 0px;
+}
+
+.content .item-wrap[contact] > img
+{
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.content .item-wrap[contact] .location
+{
+	margin: 3px 0px;
+	padding: 5px 2px;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	color: #555555;
+
+	position: relative;
+	left: 12px;
+}
+
+.preview-tab
+{
+	font-size: 12px;
+}
+
+.preview-tab .category
+{
+	padding-bottom: 8px;
+	margin-bottom: 8px;
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.preview-tab .category .list
+{
+	padding: 0px 5px;
+	margin: 0px;
+	display: inline-block;
+}
+
+.preview-tab .category .list .item
+{
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.preview-tab .category .list .item:hover
+{
+	color: orange;
+}
+
+.preview-tab .category .list .item[current]
+{
+	color: #2E80B9;
+}
+
+.preview-tab .category .more
+{
+	float: right;
+	cursor: pointer;
+}
+
+.preview-tab .category .more:hover
+{
+	text-decoration: underline;
+}
+
+.preview-tab .category-content .list
+{}
+
+.preview-tab .category-content .list .item
+{
+}
+
+.preview-tab .category-content .list .item .title
+{
+	max-width: 70%;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #555555;
+}
+
+.preview-tab .category-content .list .item .date
+{
+	display: inline-block;
+	float: right;
+	color: #acacac;
+}
+
+.banner
+{
+	display: inline-block;
+	margin: 0px auto;
+}
+
+.banner .image-container
+{
+	display: inline-block;
+}
+
+.banner .images
+{
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+}
+
+.banner .images .item
+{
+	display: inline-block;
+	position: absolute;
+}
+
+.banner .images .item img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.banner .menutab
+{
+	left: 0px;
+}
+
+.banner .controller
+{
+	text-align: right;
+	padding: 5px 0px;
+}
+
+.banner .controller .item
+{
+	width: 10px;
+	height: 10px;
+	background-color: #cdcdcd;
+	display: inline-block;
+	margin-right: 3px;
+	cursor: pointer;
+}
+
+.banner .controller .item[current]
+{
+	background-color: #4bacff;
+}
+
+.play-controller
+{
+	display: inline-block;
+
+	position: absolute;
+}
+
+.play-controller .button
+{
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.play-controller .button img
+{
+	height: 12px;
+}
+
+.next-button, .prev-button
+{
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	top: -5px;
+}
+
+.fadeBanner
+{}
+
+.fadeBanner .image-container
+{}
+
+.fadeBanner .image-container .images
+{
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.fadeBanner .image-container .images .item
+{
+	display: inline-block;
+	left: 0px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.fadeBanner .image-container .images .item img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.fadeBanner .image-container .images .item[current]
+{
+}

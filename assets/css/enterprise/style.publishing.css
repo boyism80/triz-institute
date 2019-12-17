@@ -1,0 +1,13 @@
+.publish-content
+{
+	float: left;
+	width: 350px;
+	height: 170px;
+	margin: 10px 10px;
+	padding: 20px 25px;
+}
+
+.publish-content > p:first-child
+{
+	font-weight: bold;
+}

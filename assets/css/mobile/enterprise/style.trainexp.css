@@ -1,0 +1,90 @@
+.level-content-table
+{
+	border-collapse: collapse;
+}
+
+.level-content-table td
+{
+	vertical-align: top;
+}
+
+.level-content-table tr td:not(:last-child)
+{
+	border-right: 2px #c0c0c0 solid;
+	padding-right: 1vw;
+}
+
+.level-content-table tr td:not(:first-child)
+{
+	padding-left: 1vw;
+}
+
+.level-content-table[count="2"] tr td:not(:last-child)
+{
+	border-right: 2px #c0c0c0 solid;
+}
+
+.level-content-table tr:first-of-type td
+{
+	padding: 3vw;
+}
+
+.level-content-table[count="2"] tr:first-of-type td
+{
+	padding: 0px 7.3153vw;
+}
+
+.level-box
+{
+	text-align: center;
+}
+
+.level-box .level-value
+{
+	font-weight: bold;
+	font-size: 10vw;
+}
+
+.intro-view
+{
+	width: 100%;
+}
+
+.intro-arrow
+{
+	width: 10vw;
+	display: table;
+	margin: 10px auto;
+}
+
+.dialog-box-image
+{
+	width: 100%;
+}
+
+.cost
+{
+	font-weight: bold;
+}
+
+.slogun
+{
+	width: 100%;
+}
+
+.default-list
+{
+	font-size: 3vw;
+	padding-left: 5px;
+	margin: 15px 0px;
+}
+
+.desc, .default-list, .cost
+{
+	font-size: 3vw;
+}
+
+.desc
+{
+	margin: 10px;
+}

@@ -1,0 +1,44 @@
+.btable
+{
+	text-align:center; 
+	padding:8px 0 8px 0; 
+	font-size:11px; 
+	letter-sline-height:1em; 
+	letter-spacing:-1px;
+}
+
+.btable thead th
+{
+	border-top:1px solid #9c9c9c; 
+	border-bottom:1px solid #9c9c9c; 
+	text-align:center; 
+	padding:8px 0 8px 0; 
+	font-size:11px; 
+	font-weight:bold; 
+	letter-sline-height:1em; 
+	letter-spacing:-1px;
+}
+
+.btable td
+{
+	border-bottom: 1px solid #a4a4a4;
+	padding: 10px 5px;
+	font-size: 11px;
+}
+
+.board-top
+{
+	margin-bottom: 10px;
+}
+
+.comment-count
+{
+	color: #939393;
+	font-size: 11px;
+	margin-left: 3px;
+}
+
+.btable td.no-align
+{
+	text-align: left;
+}

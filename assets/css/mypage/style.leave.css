@@ -1,0 +1,22 @@
+#member-id
+{}
+
+#member-pw
+{
+	width: 200px;
+	height: 20px;
+}
+
+#leave-reason
+{}
+
+#leave-reason-detail
+{
+	width: 100%;
+	height: 200px;
+}
+
+#contents .buttons
+{
+	text-align: right;
+}

@@ -1,0 +1,44 @@
+.video-table
+{}
+
+.video-table > ul[name=video-list]
+{}
+
+.video-table > ul[name=video-list] > li
+{
+	overflow: auto;
+	width: 100%;
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.video-table > ul[name=video-list] > li > .thumbnail
+{
+	width: 80px;
+	height: 80px;
+	float: left;
+}
+
+.video-table > ul[name=video-list] > li > .item-info
+{
+	float: left;
+	padding: 10px 20px;
+}
+
+.video-table > ul[name=video-list] > li > .item-info > .subject
+{
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.video-table > ul[name=video-list] > li > .item-info > .subject:hover
+{
+	color: orange;
+}
+
+.video-table > ul[name=video-list] > li > .item-info span
+{
+	margin-right: 20px;
+	font-size: 11px;
+	min-width: 60px;
+	display: inline-block;
+}

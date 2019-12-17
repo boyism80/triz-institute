@@ -1,0 +1,12 @@
+.expway-name
+{
+	display: inline-block;
+	width: 120px;
+}
+
+#map
+{
+	height: 500px;
+	border: 5px #c0c0c0 solid;
+	margin-bottom: 40px;
+}

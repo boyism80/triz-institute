@@ -1,0 +1,35 @@
+.element-form
+{
+	margin-bottom: 20px;
+}
+
+.element-form .element-head
+{
+	border: 1px #c0c0c0 solid;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 10px 15px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.element-form .element-content
+{
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: 1px #c0c0c0 solid;
+	border-top: none;
+	padding: 10px 5px;
+}
+
+.element-form .element-date
+{
+	float: right;
+	margin-right: 10px;
+}
+
+.element-form .empty
+{
+	text-align: center;
+	padding: 20px 0px;
+}

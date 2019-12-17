@@ -1,0 +1,28 @@
+.searchbox
+{
+	font-size: 12px;
+	text-align: right;
+}
+
+.searchbox > *
+{
+	margin-right: 2px;
+}
+
+.searchbox > select[name=board-type]
+{
+	height: 20px;
+	position: relative;
+}
+
+.searchbox > input[name="keyword"]
+{
+	position: relative;
+	height: 20px;
+}
+
+.searchbox > .default-button[name=search]
+{
+	height: 20px;
+	padding: 0px 10px;
+}

@@ -1,0 +1,29 @@
+.signin-header
+{
+	margin: 15px 0px;
+}
+
+.signin-header > .top
+{
+	overflow: auto;
+}
+
+.signin-header > .top > .title
+{
+	display: block;
+	margin: 10px 0px;
+	display: inline-block;
+	line-height: initial;
+	font-size: 30px;
+}
+
+.signin-header > .top > .state-image
+{
+	float: right;
+}
+
+.signin-header > .bottom > .desc
+{
+	line-height: initial;
+	font-weight: bold;
+}

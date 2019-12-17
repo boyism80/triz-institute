@@ -1,0 +1,40 @@
+.about-list
+{}
+
+.about-list > .about
+{
+	border: 1px #464646 solid;
+	margin: 10px 0px 20px 0px;
+	overflow: auto;
+}
+
+.about-list > .about > .about-image
+{
+	float: left;
+}
+
+.about-list > .about > .about-image > img
+{
+	width: 100px;
+	height: 112px;
+	vertical-align: top;
+}
+
+.about-list > .about > .about-image > .about-name
+{
+	text-align: center;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-size: 11px;
+	letter-spacing: -1px;
+	padding: 10px 0px;
+	line-height: 1.1em;
+}
+
+.about-list > .about > .about-intro
+{
+	margin: 12px 0px;
+	font-size: 12px;
+	overflow: hidden;
+}

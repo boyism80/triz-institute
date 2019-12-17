@@ -1,0 +1,64 @@
+.ui-content
+{
+}
+
+.flag
+{
+	width: 10vw;
+	margin-left: 5vw;
+	margin-right: 5vw;
+	margin-top: 3vw;
+	margin-bottom: 0vw;
+}
+
+.history-header
+{
+	color: white;
+	padding: 1vw 5vw;
+	font-weight: bold;
+}
+
+.history-list
+{
+	border-left: 0.8vw #c0c0c0 solid;
+	margin-left: 5vw;
+	margin-top: 0px;
+	padding: 0vw 0vw;
+	list-style: none;
+}
+
+.history-list > li
+{
+	margin-bottom: 8vw;
+}
+
+.history-list > li > .year
+{
+	margin-left: -4vw;
+	font-weight: bold;
+	font-size: 7vw;
+	display: flex;
+	align-items: center;
+}
+
+.history-list > li > .year:before{
+   content: '';
+   display: inline-block;
+   width: 8vw;
+   height: 7vw;
+   background-image: url("../../../images/mobile/intro/history/list-item-header.png");
+   background-size: 7vw auto;
+   background-repeat: no-repeat;
+}
+
+
+.archivement-list
+{
+	list-style-image: url("../../../images/list-item-header.png");
+	padding: 0vw 5vw;
+}
+
+.archivement-list > li
+{
+	margin-bottom: 1vw;
+}

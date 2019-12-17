@@ -1,0 +1,65 @@
+.ui-content
+{
+	margin: 20px 10px;
+}
+
+.intro
+{
+	overflow: auto;
+}
+
+.intro > img
+{
+	float: left;
+	margin-right: 10px;
+	width: 70px;
+}
+
+.begin-box
+{
+	text-align: center;
+	margin: 10px 0px;
+	padding: 10px 0px;
+	font-weight: bold;
+	color: white;
+	background-color: #309de9;
+}
+
+ul
+{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.enter-list > li
+{
+	text-align: center;
+	margin: 20px 0px;
+}
+
+.enter-list > li > img
+{
+	width: 60px;
+}
+
+.enter-list > li > .title
+{
+	font-weight: bold;
+	color: #309de9;
+}
+
+.enter-list > li > .desc
+{
+	font-size: 14px;
+}
+
+.default-list > li
+{
+	font-size: 13px;
+}
+
+.ui-page-theme-a a
+{
+	font-size: 12px;
+}

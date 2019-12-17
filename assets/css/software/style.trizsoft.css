@@ -1,0 +1,54 @@
+.main-content
+{
+	font-size: 14px;
+}
+
+.main-content img
+{
+	float: right;
+	margin: 5px 20px;
+}
+
+.ident-list-item
+{
+	padding: 0px 7px;
+}
+
+.ident-list-item:not(:last-child)
+{
+	border-right: 1px black solid;
+}
+
+.enterprise-main-content
+{
+	width: 15%;
+	margin: 0px auto;
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	position: relative;
+	bottom: 265px;
+	text-align: center;
+}
+
+.enterprise-content
+{
+	position: relative;
+	width: 37%;
+	height: 90px;
+	padding: 10px 15px;
+}
+
+.enter-content-title
+{
+	margin:5px 0px;
+	color: white;
+}
+
+.enter-content-list-item
+{
+	margin-left: 10px;
+	display: list-item;
+	list-style-position: inside;
+	list-style-type: square;
+}

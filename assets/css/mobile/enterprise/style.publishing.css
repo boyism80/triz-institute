@@ -1,0 +1,62 @@
+.content-box
+{}
+
+.width-table
+{
+	border-collapse: collapse;
+	margin: 15px 0px;
+}
+
+.width-table tr > td
+{
+	padding: 0vw 3vw;
+	width: 50%;
+}
+
+.width-table tr > td:not(:last-of-type)
+{
+	border-right: 1px #a0a0a0 solid;
+}
+
+.width-table .index
+{
+	font-size: 8vw;
+	font-weight: bold;
+}
+
+.width-table .title
+{
+	font-size: 3.5vw;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.width-table .desc ul > li
+{
+	margin-bottom: 5px;
+}
+
+.width-table .desc
+{
+	vertical-align: top;
+}
+
+.def-title-view
+{
+	width: 45%;
+	text-align: left;
+	margin: 0vw 2vw;
+}
+
+.content-box .title
+{
+	font-size: 5vw;
+}
+
+.content-box .intro
+{
+	border-left: 2.5vw #3193d0 solid;
+	border-top: 1px #3193d0 solid;
+	margin: 5px 0px;
+	padding: 5px 5px;
+}

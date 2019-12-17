@@ -1,0 +1,245 @@
+ul
+{
+	padding: 0px;
+	text-align: center;
+}
+
+li
+{
+	list-style: none;
+	display: inline-block;
+	width: 30%;
+}
+
+.shortcuts-images
+{
+	padding: 3em 0em;
+}
+
+.shortcut-button
+{
+	height: 50%;
+	position: absolute;
+	top: 10px;
+	box-shadow: none;
+	border: none;
+}
+
+.shortcut-button > img
+{
+	width: 35px;
+}
+
+.custom_footer
+{
+	padding: 1em 0em;
+	background-color: white;
+	border-top: 1px #309DE9 solid;
+	border-bottom: none;
+}
+
+.custom_footer > img
+{
+	width: 20%;
+}
+
+.menu-left
+{
+	float: left;
+	position: fixed;
+}
+
+.menu-left-home > img
+{
+	width: 45px;
+	margin: 0px auto;
+	display: block;
+	padding: 20px 0px;
+}
+
+.menu-right
+{
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-bottom: 30em;
+	overflow: hidden;
+	background-color: white;
+	margin-left: 100px;
+}
+
+.menu-right-title
+{
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 0.5em;
+	color: #a0a0a0;
+}
+
+.menu-items
+{
+	margin: 0px;
+}
+
+.menu-title
+{
+	font-size: 18px;
+	font-weight: bold;
+	border-bottom: 2px black solid;
+	padding: 1em 0em;
+}
+
+.menu-right-subitem
+{
+	font-size: 14px;
+	display: block;
+	text-align: left;
+	padding: 0.8em 0em;
+	border-bottom: 1px #c0c0c0 solid;
+	width: 100%;
+	padding-left: 0.7em;
+}
+
+.menu-right-subitem > a:visited, .menu-right-subitem > a:link
+{
+	text-decoration: none;
+	color: inherit;
+}
+
+.menu-state-items
+{
+	margin: 0px;
+	color: white;
+	width: 100px;
+}
+
+.menu-state-items > li
+{
+	padding: 7px 0px;
+	display: block;
+	text-align: center;
+	width: 100%;
+	cursor: pointer;
+}
+
+.menu-state-items > li[focus]
+{
+	background-color: white;
+}
+
+.menu-state-items > li[focus] > a
+{
+	color: black;
+}
+
+.menu-state-items > li > a
+{
+	color: white;
+	font-size :12px;
+}
+
+.menu-state-items > li > img
+{
+	display: block;
+	width: 40px;
+	margin: 0px auto;
+}
+
+.ui-page-theme-a a
+{
+	font-weight: 100 !important;
+	color: inherit;
+}
+
+.ui-page-theme-a a:hover
+{
+	font-weight: 100 !important;
+};
+
+.menu-header
+{
+	position: relative;
+}
+
+.btn-close
+{
+	display: inline-block;
+	width: 25px;
+	top: 15px;
+	right: 30px;
+	position: absolute;
+}
+
+.default-button
+{
+	width: 100%;
+}
+
+.ui-header .ui-title
+{
+	line-height: normal;
+	display: inline-block;
+	position: relative;
+}
+
+.home-button
+{
+	padding: 2vw 0vw;
+}
+
+.button-blue
+{
+	background-color: #309DE9;
+	color: white;
+}
+
+.button-gray
+{
+	background-color: #b0b0b0;
+	color: white;
+}
+
+.sub-banner
+{
+	position: relative;
+}
+
+.sub-banner .text
+{
+	position: absolute;
+	top: 30%;
+	right: 5%;
+	font-weight: bold;
+	font-size: 5vw;
+}
+
+.ui-header .title
+{
+	overflow: auto;
+	display: inline-block;
+	position: relative;
+	top: 2vw;
+}
+
+.ui-header .title .left
+{
+	float: left;
+	font-size: 6.2vw;
+	position: relative;
+	margin-right: 1vw;
+	overflow: viisble;
+}
+
+.ui-header .title .right
+{
+	float: right;
+	text-align: left;
+	position: relative;
+	top: 0.8vw;
+}
+
+.ui-header .title .right .text
+{
+	line-height: 3vw;
+	font-size: 2.3vw;
+}

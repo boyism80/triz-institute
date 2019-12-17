@@ -1,0 +1,168 @@
+#header
+{
+	display: none;
+}
+
+#header-ex .section
+{
+	position: relative;
+}
+
+#header-ex .section:after
+{
+	content: "";
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('../images/background.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+#contents > .section
+{
+	min-height: 0px;
+	margin-bottom: 20px;
+}
+
+#contents .content-title
+{
+	margin: 0px 5px;
+	color: white;
+	font-weight: bold;
+	font-size: 15px;
+	display: inline-block;
+}
+
+#contents .content-title .content-title-text
+{
+	color: black;
+}
+
+#contents .content
+{
+	margin: 25px 0px;
+}
+
+#contents .content-header-ex
+{
+	margin-bottom: 7px;
+}
+
+#contents .content-header-ex .more
+{
+	float: right;
+	position: relative;
+	top: 5px;
+}
+
+#contents .content-main[use-grid=true]
+{
+	background-image: url("images/board_bg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+	text-overflow: ellipsis;
+	padding: 10px 15px;;
+	font-size: 11px;
+}
+
+.preview-gallery-item
+{
+	display: inline-block;
+	margin: 0px 5px;
+}
+
+.preview-gallery-item img
+{
+	width: 90px;
+}
+
+#contents
+{
+	margin-top: 30px;
+}
+
+#banner
+{
+	height: 335px;
+	margin-bottom: 20px;
+}
+
+#banner .slogan
+{
+	position: relative;
+	border: 1px white solid;
+	top: 60px;
+	left: 35px;
+}
+
+.quick
+{
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	background-color: black;
+	display: inline-block;
+	padding: 25px 0px;
+	cursor: pointer;
+	position: fixed;
+}
+
+.preview-box .preview-box-item
+{
+	display: inline-block;
+	width: 210px;
+	margin: 5px 15px;
+	padding: 5px 10px;
+	vertical-align: top;
+	min-height: 120px;
+	box-shadow: 1px 1px 5px #888888;
+}
+
+.preview-box .preview-box-item ul
+{
+	padding: 0px 5px 5px 10px;
+}
+
+.preview-box .preview-box-item li
+{
+	overflow: auto;
+	margin: 5px 0px;
+}
+
+.preview-box .preview-box-item .preview-board-date
+{
+	float: right;
+}
+
+.preview-box .preview-box-item .preview-board-title
+{
+	max-width: 50%;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+}
+
+.preview-box .preview-box-item .preview-board-title:hover
+{
+	text-decoration: underline;
+}
+
+
+#sitemap
+{
+	background-image: url('http://placehold.it/1000x300');
+	height: 300px;	
+	margin-top: 30px;
+}

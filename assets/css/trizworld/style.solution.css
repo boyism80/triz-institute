@@ -1,0 +1,10 @@
+.technique-list
+{
+	text-align: center;
+	padding: 0px;
+}
+
+.technique-list > li
+{
+	margin: 20px 0px;
+}

@@ -1,0 +1,142 @@
+.ui-content
+{
+	padding: 0px;
+}
+
+.top
+{
+	background-color: #f2f2f2;
+	text-align: center;
+	padding: 15px 0px;
+	border-bottom: 2px #a0a0a0 solid;
+}
+
+.top .subject
+{
+	font-size: 4vw;
+	font-weight: bold;
+}
+
+.top .date
+{
+
+}
+
+.mid
+{
+	padding: 10px 10px;
+}
+
+.mid .content
+{
+	min-height: 35vh;
+	padding-bottom: 10vw;
+}
+
+.bot
+{
+	padding: 5px 0px;
+	border-top: 1px #c0c0c0 solid;
+	border-bottom: 1px #c0c0c0 solid;
+	text-align: right;
+}
+
+.bot .element
+{
+	margin: 0vw 1.5vw;
+}
+
+.button-box
+{
+/*	
+	background-color: #f2f2f2;
+	border-bottom: 1px #c0c0c0 solid;
+*/
+	padding: 10px 0px;
+}
+
+li.comment-item
+{
+	padding: 5px;
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.comment-head
+{
+	padding: 10px 0px;
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.comment-top
+{
+	overflow: auto;
+	padding: 5px 0px;
+}
+
+.comment-top .chead-name
+{
+	float: left;
+}
+
+.comment-top .button-box
+{
+	float: right;
+	color: black;
+}
+
+.comment-mid
+{
+	font-size: 2.7vw;
+}
+
+.comment-bot
+{
+	padding: 10px 0px;
+}
+
+.input-box
+{}
+
+.input-box textarea[name="ibox-content"]
+{
+	width: 100%;
+	height: 75px;
+	resize: none;
+}
+
+.input-box .button-box
+{
+	text-align: right;
+}
+
+.default-button
+{
+	padding: 5px;	
+}
+
+.input-box
+{
+	padding: 5px 0px;
+}
+
+.input-head
+{
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.files > a
+{
+	font-weight: normal;
+}
+
+.mid .content img
+{
+	max-width: 100%;
+}
+
+#icon-file
+{
+	width: 20px;
+	margin-right: 5px;
+}

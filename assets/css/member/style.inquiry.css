@@ -1,0 +1,98 @@
+input[type=text]
+{
+	border: 1px #c0c0c0 solid;
+	height: 20px;
+	margin: 1px 0px 3px 0px;
+}
+
+.inquiry-box:first-child
+{
+}
+
+.inquiry-box
+{
+}
+
+.inquiry-item
+{
+	overflow: auto;
+	height: 125px;
+}
+
+.inquiry-item:first-child
+{
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.inquiry-item > .left
+{
+	float: left;
+	height: 100%;
+	line-height: initial;
+	padding: 40px 0px;
+}
+
+.inquiry-item > .left > *:first-child
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.inquiry-item > .left > *:last-child
+{
+	color: #a0a0a0;
+	font-weight: bold;
+}
+
+.inquiry-item > .right
+{
+	float: right;
+	height: 100%;
+	padding-top: 40px;
+}
+
+.inquiry-desc
+{
+	letter-spacing: -1px;
+	padding-top: 20px;
+	font-size: 11px;
+	color: #969696;
+}
+
+.inquiry-table
+{
+	font-size: 12px;
+	text-align: left;
+	letter-spacing: -1px;
+	display: inline-block;
+}
+
+.inquiry-table  tr
+{}
+
+.inquiry-table tr > *:first-child
+{
+	width: 60px;
+}
+
+.inquiry-item .default-button
+{
+	width: 58px;
+	text-align: center;
+	position: relative;
+	float: right;
+	margin-left: 5px;
+}
+
+
+.inquiry-item.id .default-button
+{
+	height: 46px;
+	padding-top: 0px;
+}
+
+.inquiry-item.pw .default-button
+{
+	height: 70px;
+	padding-top: 0px;
+}

@@ -1,0 +1,93 @@
+.ui-content
+{
+	padding: 0px 15px;
+}
+
+.icon-box
+{
+	text-align: center;
+	margin-top: 20px;
+}
+
+#icon-complete
+{
+	width: 10vw;
+}
+
+.inquiry-box
+{
+	border-top: 4px #309de9 solid;
+	border-bottom: 4px #309de9 solid;
+	margin: 20px 0px;
+	padding: 20px 0px;
+}
+
+.inquiry-header
+{
+	overflow: auto;
+}
+
+.inquiry-header > img
+{
+	float: left;
+	margin-left: 10px;
+	margin-right: 15px;
+	width: 45px;
+}
+
+.inquiry-table
+{
+	display: inline-block;
+}
+
+form
+{
+	position: relative;
+	display: table;
+	margin: 0px auto;
+}
+
+form input[type="submit"]
+{
+	float: right;
+}
+
+form[name="inquiry-id"] > input[type="submit"]
+{
+	height: 87px;
+	width: 100px;
+	padding: 0px;
+	margin: 0px 10px;
+	top: 10px;
+}
+
+form[name="inquiry-pw"] > input[type="submit"]
+{
+	padding: 0px;
+	margin: 0px 10px;
+	height: 125px;
+	width: 100px;
+	top: 10px;
+}
+
+.inquiry-desc
+{
+	text-align: center;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+.inquiry-desc > p
+{
+	margin: 0px;
+}
+
+.ui-input-text
+{
+	width: 40vw;
+}
+
+.ui-input-btn input
+{
+	font-size: 14px;
+}

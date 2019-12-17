@@ -1,0 +1,44 @@
+.category-list
+{
+	overflow: auto;
+}
+
+.category-list .category-item
+{
+	display: inline-block;
+	float: left;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 18px;
+	min-width: 160px;
+	margin: 0px 13px;
+}
+
+.category-list .category-item[condition=hide]
+{
+	display: none;
+}
+
+.category-list .category-item a:hover
+{
+	color: orange;
+}
+
+.submenu-list
+{
+	min-height: 300px;
+	font-weight: normal;
+	font-size: 12px;
+	padding-top: 10px;
+}
+
+.submenu-list .submenu-item
+{
+	padding: 10px 7px;
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.submenu-list .submenu-item a:hover
+{
+	color: orange;
+}

@@ -1,0 +1,49 @@
+.top
+{
+	font-size: 5vw;
+	font-weight: bold;
+	padding: 10px 0px;
+	border-bottom: 3px #30819f solid;
+}
+
+.item-list > li
+{
+	border-bottom: 2px #c0c0c0 solid;
+	padding: 2vw 0vw 5vw 0vw;
+}
+
+.item-list > li:last-of-type
+{
+	border-right: none;
+}
+
+ul.item-list > li .item-title
+{
+	font-size: 4vw;
+}
+
+ul.subitem-list
+{
+	margin-left: 5vw;
+}
+
+ul.subitem-list > li
+{
+	display: inline-block;
+	padding-right: 2vw;
+	margin-right: 2vw;
+	margin-top: 2vw;
+	line-height: 2.5vw;
+}
+
+ul.subitem-list > li > a
+{
+	font-size: 3vw;
+}
+
+ul.subitem-list > li:last-of-type
+{
+	padding: 0px;
+	margin-right: 0px;
+	border-right: none;
+}

@@ -1,0 +1,61 @@
+.board-list > li
+{
+	padding: 10px 10px;
+	border: 1px black solid;
+	margin: 10px 0px;
+	border-radius: 7px;
+}
+
+.top
+{
+	overflow: auto;
+	padding: 5px 0px 10px 0px;
+}
+
+.title
+{
+	float: left;
+	font-weight: normal;
+	color: black;
+}
+
+.comments
+{
+	float: left;
+}
+
+.title[fix]
+{
+	font-weight: bold;
+}
+
+.bot
+{}
+
+.bot > span
+{
+	font-size: 2.7vw;
+	color: #a0a0a0;
+}
+
+.bot > span:not(:last-of-type)
+{
+	margin-right: 13vw;
+}
+
+.count
+{
+	text-align: right;
+	padding-top: 10px;
+}
+
+#write
+{
+	display: block;
+	padding: 10px 0px;
+	font-size: 3vw;
+	font-weight: bold;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+}

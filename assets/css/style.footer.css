@@ -1,0 +1,45 @@
+#footer
+{
+	display: block;
+}
+
+#footer > .partnership
+{
+	background-color: #e3e3e3;
+	padding: 15px 0px;
+}
+
+#footer .icon-list
+{
+	list-style: none;
+	padding: 0px 0px;
+	margin: 0px 0px;
+}
+
+#footer .icon-item
+{
+	display: inline-block;
+	margin: 0px 10px;
+	text-align: center;
+	width: 118px;
+}
+
+#footer .icon-item > img
+{
+	width: 100%;
+}
+
+#footer .contact
+{
+	background-color: #003D75;
+	padding: 15px 0px;
+}
+
+#footer .contact > .section > div > span
+{
+	margin-right: 15px;
+	font-size: 11px;
+	font-weight: bold;
+	color: white;
+	font-family: gulim;
+}

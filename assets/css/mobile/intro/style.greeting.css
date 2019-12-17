@@ -1,0 +1,44 @@
+.ui-content
+{
+	margin: 1em 2em;
+}
+
+.top
+{
+	border-top: 2px black solid;
+	border-bottom: 2px black solid;
+	padding: 2em 0em;
+}
+
+.left
+{
+	float: left;
+	width: 50%;
+}
+
+.right
+{
+	overflow: hidden;
+}
+
+.intro-logo
+{
+	width: 50%;
+}
+
+.intro-pic
+{
+	width: 100%;
+}
+
+.left-title
+{
+	font-size: 5vw;
+	font-weight: bold;
+}
+
+.left-desc
+{
+	font-size: 2vw;
+	margin: 1vw 0vw;
+}

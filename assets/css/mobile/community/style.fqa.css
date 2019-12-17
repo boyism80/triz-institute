@@ -1,0 +1,60 @@
+#fqa-list > li
+{
+	border-top: 1px #c0c0c0 solid;
+}
+
+#fqa-list > li[hidden] > .top
+{
+	background: none;
+	color: black;
+}
+
+#fqa-list > li > .top
+{
+	background: #309de9;
+	color: white;
+	position: relative;
+}
+
+#fqa-list > li[hidden] > .bot
+{
+	display: none;
+}
+
+#fqa-list > li:last-of-type
+{
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.top
+{
+	padding: 15px 10px;
+}
+
+.top > ul
+{
+	list-style-type: disc;
+}
+
+.bot
+{
+	padding: 10px 30px;
+}
+
+#fqa-list > li .arrow
+{
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	background-image: url('../../../images/mobile/community/fqa/icon_up.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position-y: 6px;
+}
+
+#fqa-list > li[hidden] .arrow
+{
+	background-image: url('../../../images/mobile/community/fqa/icon_down.png');
+}

@@ -1,0 +1,135 @@
+.top
+{
+	text-align: center;
+	margin: 20px 10px;
+}
+
+.bottom
+{
+	padding: 5px 10px;
+}
+
+#form-regist
+{
+	display: table;
+	margin: 0px auto;
+}
+
+.member-info-table
+{
+}
+
+.ui-input-text
+{
+	display: inline-block;
+}
+
+.member-info-table tr th
+{
+
+}
+
+.default-table
+{
+	font-size: 12px;
+	border-collapse: collapse;
+}
+
+.default-table tr > th
+{
+	width: 20vw;
+}
+
+.default-table tr > td, .default-table tr > th
+{
+	border-right: 1px #a4a4a4 solid;
+	border-top: 1px #a4a4a4 solid;
+	padding: 15px 10px;
+}
+
+.default-table tr > *:first-child
+{
+	border-left: 1px #a4a4a4 solid;
+}
+
+.default-table > tbody > tr:last-child > *
+{
+	border-bottom: 1px #309DE9 solid;
+}
+
+.ui-checkbox-on
+{
+	width: auto;
+}
+
+.ui-checkbox .ui-btn
+{
+	background-color: white;
+}
+
+.ui-page-theme-a .ui-btn, .ui-page-theme-a .ui-btn
+{
+	border-color: white;
+}
+
+#submit
+{
+	font-size: 12px;
+}
+
+.ui-input-btn
+{
+	padding: 5px 15px;
+	margin: 0px;
+	height: 15px;
+}
+
+.ui-input-btn input
+{
+	font-size: 12px;
+}
+
+.button-box
+{
+	margin: 15px 0px;
+}
+
+input[name="member_name"]
+{
+	width: 40vw;
+}
+
+input[name="member_id"]
+{
+	width: 40vw;
+}
+
+input[name="member_pw"]
+{
+	width: 40vw;
+}
+
+input[name="member_pw_confirm"]
+{
+	width: 40vw;
+}
+
+input[name="member_addr"]
+{
+	width: 35vw;
+}
+
+input[name="member_addr_detail"]
+{
+	width: 30vw;
+}
+
+input[name="member_mail_account"]
+{
+	width: 28vw;
+}
+
+input[name="member_mail_domain"]
+{
+	width: 28vw;
+}

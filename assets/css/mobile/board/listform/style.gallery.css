@@ -1,0 +1,90 @@
+.count
+{
+	margin: 3vw 0vw;
+}
+
+.gallery-list li
+{
+	overflow: auto;
+	padding: 10px 5px;
+	border-bottom: 1px #c0c0c0 solid;
+	height: 30vw;
+}
+
+.gallery-list li:first-of-type
+{
+	border-top: 2px #c0c0c0 solid;
+}
+
+.gallery-list li .left
+{
+	float: left;
+	width: 40%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.gallery-list li .left > .thumb
+{
+	width: 100%;
+}
+
+.gallery-list li .right
+{
+	overflow: hidden;
+	padding-left: 5vw;
+}
+
+.gallery-list li .top
+{
+	overflow: auto;
+}
+
+.gallery-list li .title
+{
+	font-weight: bold;
+	font-size: 5vw;
+	float: left;
+}
+
+.gallery-list li .content-preview
+{
+	height: 8vw;
+	overflow: hidden;
+	margin: 1vw 0vw;
+	color: #a0a0a0;
+}
+
+#footer
+{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+#footer .default-button, #footer .cancel-button
+{
+	width: 100%;
+	float: left;
+	box-sizing: border-box;
+	padding: 10px 0px;
+}
+
+.gallery-list li .comments
+{
+	position: relative;
+	float: left;
+	margin-left: 2vw;
+}
+
+.gallery-list li .comments > img
+{
+	width: 7vw;
+}
+
+.gallery-list li .comments > .highlight-color
+{
+	position: absolute;
+	top: 1.25vw;
+	left: 2.65vw;
+}

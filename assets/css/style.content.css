@@ -1,0 +1,101 @@
+.menutab ul
+{
+	border-radius: 10px;
+	margin: 10px 0px 10px 0px;
+}
+
+.menutab > ul > li
+{
+	border-bottom: 1px #d4d4d4 solid;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.menutab > ul > li[hover]
+{
+	color: white;
+}
+
+.menutab > ul > li > a
+{
+	display: block;
+	padding: 5px 10px;
+}
+
+.left-content .contact
+{
+	display: inline-block;
+}
+
+#content-title
+{
+	color: #2E80B9;
+	font-family: 'Nanum Gothic';
+	font-weight: bold;
+}
+
+.division-line
+{
+	background-color: #309de9;
+	height: 5px;
+	margin: 20px 0px;
+}
+
+.left-content
+{
+	display: inline-block;
+	float: left;
+}
+
+.right-content
+{
+	display: inline-block;
+	float: right;
+	width: 75%;
+	min-height: 500px;
+}
+
+.real-content
+{
+	margin-bottom: 50px;
+}
+
+.right-content[full]
+{
+	float: none;
+	width: 100%;
+	display: block;	
+}
+
+.left-content .menutab
+{
+	border-radius: 10px;
+}
+
+.left-content .menutab > li
+{
+	border-bottom: 1px #d4d4d4 solid;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.left-content .menutab > li[hover]
+{
+	color: white;
+}
+
+.left-content .menutab > li > a
+{
+	display: block;
+	padding: 5px 10px;
+}
+
+.left-content .contact
+{
+	display: inline-block;
+}
+
+#contents .loaded-content
+{
+	min-height: 450px;
+}

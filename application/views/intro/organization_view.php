@@ -1,0 +1,1 @@
+<img src="<?php echo base_url(); ?>assets/images/intro/organization/organization-chart.png" style="width: 100%;">

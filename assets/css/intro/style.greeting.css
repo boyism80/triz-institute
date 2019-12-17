@@ -1,0 +1,17 @@
+.main-content
+{
+}
+
+.main-content .content-img
+{
+	float: right;
+	margin: 5px 20px;
+}
+
+.title
+{
+	line-height: 40px;
+	font-size: 25px;
+	text-align: center;
+	margin: 10px 0px;
+}

@@ -1,0 +1,30 @@
+
+
+.signin-process-list
+{
+	display: inline-block;
+	float: right;
+}
+
+.signin-process-list > li
+{
+	display: inline-block;
+	background-color: black;
+	color: white;
+	border-radius: 50px;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	padding: 15px 10px;
+}
+
+.readonly-textbox
+{
+	margin: 25px 0px;
+}
+
+.agree-box
+{
+	text-align: right;
+	margin: 5px 0px;
+}

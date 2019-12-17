@@ -1,0 +1,51 @@
+.group-title
+{
+	font-size: 6vw;
+}
+
+ul.member-list
+{
+	margin-bottom: 5vw;
+}
+
+ul.member-list > li
+{
+	padding: 5vw 1vw;
+	margin: 2vw 0vw;
+	border: 0.1vw #c0c0c0 solid;
+	border-radius: 2vw;
+}
+
+ul.member-list > li .top
+{
+	font-weight: bold;
+}
+
+ul.member-list > li .top *
+{
+	font-size: 3.5vw;
+}
+
+ul.member-list > li .mid
+{}
+
+ul.member-list > li .bot
+{}
+
+ul.member-list > li .hidden-area
+{
+	margin-top: 1.5vw;
+	display: none;
+}
+
+ul.member-list > li .hidden-area > div:not(:last-of-type)
+{
+	margin-bottom: 1vw;
+}
+
+ul.member-list > li .key
+{
+	display: inline-block;
+	width: 25vw;
+	font-weight: bold;
+}

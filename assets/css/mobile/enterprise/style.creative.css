@@ -1,0 +1,48 @@
+.history-list
+{
+	padding: 10px 0px;
+}
+
+.history-list > li
+{
+	margin: 10px 0px;
+	display: inline-block;
+}
+
+.history-list .year
+{
+	float: left;
+	font-weight: bold;
+	font-size: 5vw;
+	margin-right: 1vw;
+}
+
+.history-list .default-list
+{
+	border-left: 0.5vw #3193d0 solid;
+	padding-left: 1vw;
+	overflow: hidden;
+}
+
+.content-box
+{
+	border-top: 0.5vw #3193d0 solid;
+	border-bottom: 0.5vw #3193d0 solid;
+	padding: 10px 0px;
+}
+
+.image-list
+{
+	text-align: center;
+}
+
+.image-list > li
+{
+	height: 20vw;
+	display: inline-block;
+}
+
+.image-list > li > img
+{
+	height: 100%;
+}

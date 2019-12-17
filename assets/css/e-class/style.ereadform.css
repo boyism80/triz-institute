@@ -1,0 +1,13 @@
+.lecture-table
+{}
+
+.lecture-table th, .lecture-table td
+{
+	border-bottom: 2px #c0c0c0 solid;
+	padding: 10px 0px;
+}
+
+.lecture-table th
+{
+	width: 170px;
+}

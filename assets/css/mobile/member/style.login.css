@@ -1,0 +1,37 @@
+form[name="form-login"]
+{
+	width: 90%;
+	margin: 0px auto;
+}
+
+.ui-input-text
+{
+	width: 100%;
+}
+
+.default-button
+{
+	width: 49%;
+	padding: 10px 0px;
+}
+
+.login-title
+{
+	text-align: center;
+	font-size: 5vw;
+}
+
+.section-inquiry
+{
+	text-align: center;
+	padding: 300px 0px 50px 0px;
+	background-image: url("../../../images/mobile/member/login/background-login.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right;
+}
+
+input[type=text]
+{
+	border: none;
+}

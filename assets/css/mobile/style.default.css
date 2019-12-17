@@ -1,0 +1,310 @@
+*
+{
+	font-size: 3vw;
+	box-sizing: content-box;
+	line-height: initial;
+}
+
+p
+{
+	font-size: 3vw;
+}
+
+ul
+{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul > li
+{
+	font-size: 14px;
+	list-style-position: inside;
+}
+
+textarea
+{
+	resize: none !important;
+}
+
+#btn-login, #btn-logout
+{
+	top: 0px;
+}
+
+.ui-header
+{
+	background-color: #309DE9 !important;
+	color: white !important;
+	padding: 10px 0px;
+	text-align: center;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+}
+
+.ui-header .ui-title, .ui-footer .ui-title
+{
+	margin: 0px;
+	padding: 12px 0px;
+}
+
+.ui-header > .ui-btn
+{
+	width: 40px;
+	background: none;
+	position: absolute;
+	top: 10px;
+}
+
+.ui-header > .ui-btn:hover
+{
+	background: none;
+	border: none;
+	text-shadow: none;
+}
+
+.ui-btn
+{
+	background: none;
+	border: none;
+	box-shadow: none;
+	font-size: 12px;
+}
+
+.ui-mobile label
+{
+	font-size: 12px;
+	display: inline-block;
+}
+
+.ui-btn > img
+{
+	width: 100%;
+}
+
+.ui-btn:focus
+{
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.ui-content
+{
+	padding: 10px 0px;
+}
+
+.ui-link
+{
+	text-decoration: none;
+}
+
+.ui-panel-animate.ui-panel-page-content-position-left
+{
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);
+}
+
+.ui-panel
+{
+	width: 100%;
+}
+
+.ui-panel-inner
+{
+	padding: 0px;
+	background-color: #309DE9;
+}
+
+
+.default-button, .cancel-button
+{
+	text-align: center;
+	margin: 0px;
+	padding: 5px 10px;
+}
+
+.default-button > .ui-link
+{
+	display: block;
+	color: white !important;
+	padding: 5px 0px;
+	text-shadow: none;
+}
+
+.ui-page-theme-a
+{
+	text-shadow: none;
+}
+
+.ui-input-text input
+{
+	padding-left: 0.8em;
+	font-size: 14px;
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper
+{
+	text-shadow: none;
+}
+
+.highlight-color
+{
+	font-weight: bold;
+	color: #3193d0;
+}
+
+.highlight-background
+{
+	background-color: #309DE9;
+}
+
+.ui-input-btn input
+{
+	opacity: 1;
+	text-indent: 0px;
+}
+
+.round-button
+{
+	font-size: 11px;
+	padding: 2px 10px;
+	border-radius: 5px;
+	border: 1px #f4f4f4 solid;
+	background-color: #a4a4a4;
+	color: white;
+	cursor: pointer;
+}
+
+.ui-page-theme-a a
+{
+	color: inherit;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.ui-page-theme-a a:hover
+{
+	color: inherit;
+}
+
+.default-list > .title
+{
+	font-weight: bold;
+	margin: 5px 0px;
+}
+
+.default-list > ul
+{
+	list-style-type: square;
+	padding-left: 5vw;
+	overflow: hidden;
+}
+
+.default-table
+{
+	width: 100%;
+	font-size: 12px;
+	border-collapse: collapse;
+	margin: 20px 0px;
+}
+
+.default-table > thead
+{
+	text-align: center;
+}
+
+.default-table tr > td, .default-table tr > th
+{
+	border-right: 1px #a4a4a4 solid;
+	border-top: 1px #a4a4a4 solid;
+	padding: 15px 10px;
+}
+
+.default-table > tbody > tr:last-child > *
+{
+	border-bottom: 1px #309DE9 solid;
+}
+
+.default-table > thead > tr:last-child > td
+{
+	padding: 8px 0px;
+	border-top: 3px #309DE9 solid;
+	background-color: #f0f0f0;
+}
+
+.default-table tr > *:first-child
+{
+	border-left: 1px #a4a4a4 solid;
+}
+
+.defbox
+{
+	border-top: 2px #3193d0 solid;
+	border-bottom: 2px #3193d0 solid;
+	padding: 10px 0px;
+}
+
+.def-title-view
+{
+	display: inline-block;
+}
+
+.def-title-view .title
+{
+	font-size: 3.8vw;
+	padding: 0px 5px;
+	font-weight: bold;
+	border-left: 5px #3193d0 solid;
+}
+
+.def-title-view .desc
+{
+
+}
+
+.default-table input
+{
+	border: none;
+	background: none;
+}
+
+.ui-input-text
+{
+	display: inline-block;
+}
+
+.ui-btn
+{
+	display: inline-block;
+}
+
+.ui-input-btn input
+{
+	background: none;
+	opacity: 1;
+}
+
+body, input, select, textarea, button, .ui-btn
+{
+	line-height: normal;
+}
+
+.ui-page-theme-a .ui-btn:active
+{
+	background: none;
+}
+
+.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited
+{
+	color: inherit;
+}
+
+.ui-btn.ui-btn-active
+{
+	background: none !important;
+	border: none !important;
+	text-shadow: none !important;
+}

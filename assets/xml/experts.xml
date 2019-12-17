@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <group name="트리즈혁신연구소 소속">
+    <item name="송용원 소장" img="assets/images/intro/expert/photo2.jpg">
+      <p>소속 : 한국산업기술대 나노광공학과 교수/트리즈혁신연구소</p>
+      <p>국제트리즈협회 한국 대표이사</p>
+      <p>국제트리즈협회 인증권한 한국대표</p>
+      <p>한국트리즈학회(KATA)이사</p>
+    </item>
+    <item name="겐다니 이바노프" img="assets/images/intro/expert/겐나디.bmp">
+      <p>알츠슐러 제자, 트리즈 이론 개발자</p>
+      <p>트리즈 마스터</p>
+      <p>삼성 트리즈 컨설턴트(2008-2012)</p>
+    </item>
+    <item name="박해조 팀장" img="assets/images/intro/expert/박해조.bmp">
+      <p>트리즈혁신연구소 팀장</p>
+      <p>기업 컨설팅, 기업 교육 담당</p>
+    </item>
+    <item name="강승현 박사" img="assets/images/intro/expert/강승현.bmp">
+      <p>트리즈혁신연구소 팀장</p>
+      <p>창의적 상상력 개발 전문가</p>
+    </item>
+  </group>
+  <group name="트리즈혁신연구소와 함께하는 국내 전문가">
+    <item name="유인규 박사" img="assets/images/intro/expert/유인규.bmp">
+      <p>소속: 한국전자통신연구원</p>
+      <p>TRIZ 전문분야: 기술시스템발전법칙 연구, 기술문제해결</p>
+    </item>
+    <item name="오재곤 교수" img="assets/images/intro/expert/오재곤.bmp">
+      <p>소속: 한국산업기술대학교</p>
+      <p>TRIZ 전문분야: 창의성 교육, 기술문제 해결</p>
+    </item>
+    <item name="김영기 박사" img="assets/images/intro/expert/김영기.bmp">
+      <p>소속: (주) 지상 대표</p>
+      <p>TRIZ 전문분야: 기술문제해결, 특허</p>
+    </item>
+    <item name="이윤표 박사" img="assets/images/intro/expert/이윤표.bmp">
+      <p>소속: 한국과학기술연구원</p>
+      <p>TRIZ 전문분야: 기술문제해결</p>
+    </item>
+    <item name="이천 교수" img="assets/images/intro/expert/이천.bmp">
+      <p>소속: 인하대학교</p>
+      <p>TRIZ 전문분야: 모순 규명과 발명원리 적용</p>
+    </item>
+    <item name="신수봉박사" img="assets/images/intro/expert/신수봉.bmp">
+      <p>소속: 인하대학교</p>
+      <p>TRIZ 전문분야: 모순 규명과 발명원리의 적용</p>
+    </item>
+    <item name="최영상 님" img="assets/images/intro/expert/최영상.bmp">
+      <p>소속: LG CNS</p>
+      <p>TRIZ 전문분야: 트리즈 비즈니스</p>
+    </item>
+    <item name="임상현 박사">
+      <p>소속: 한러과학기술협력센터 소장</p>
+      <p>TRIZ 전문분야: 창의성 교육</p>
+    </item>
+  </group>
+  <group name="트리즈혁신연구소와 함께하는 해외 전문가">
+    <item name="I. Ivanov" img="assets/images/intro/expert/이고리.bmp">
+      <p>트리즈혁신연구소 수석 컨설턴트 역임(2009-2012)</p>
+      <p>트리즈 기술문제해결 컨설턴트(경력 17년)</p>
+    </item>
+    <item name="A. Bystirsky" img="assets/images/intro/expert/알렉.bmp">
+      <p>트리즈혁신연구소 수석 컨설턴트 역임(2010-2012)</p>
+      <p>트리즈 문제해결 컨설턴트(경력 20년)</p>
+    </item>
+    <item name="M. Gafitulin" img="assets/images/intro/expert/마라트.bmp">
+      <p>트리즈 마스터</p>
+      <p>TRIZ 전문분야: 기술문제해결, 창의성 교육</p>
+    </item>
+    <item name="I. Barakersky" img="assets/images/intro/expert/익.bmp">
+      <p>소속: 비즈니스 컨설팅사 "엔지니어 클래스" 대표</p>
+      <p>TRIZ 전문분야: 비즈니스 컨설팅</p>
+    </item>
+  </group>
+</root>

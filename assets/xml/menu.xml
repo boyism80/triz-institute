@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<navitab>
+		<item name="연구소 소개" link="intro" icon="assets/images/mobile/menu/icon_intro.png">
+			<subitem name="대표 인사말" link="intro/greeting"></subitem>
+			<subitem name="연혁" link="intro/history"></subitem>
+			<subitem name="조직도" link="intro/organization" platform="desktop"></subitem>
+			<!--<subitem name="Ideation-Korea" link="intro/ideation"></subitem>-->
+			<subitem name="주요 활동" link="enterprise/home"></subitem>
+			<subitem name="전문가 구성" link="intro/expert"></subitem>
+			<subitem name="찾아오시는 길" link="intro/location"></subitem>
+		</item>
+		<item name="TRIZ 소개" link="trizworld" icon="assets/images/mobile/menu/icon_world.png">
+			<subitem name="TRIZ란?" link="trizworld/intro"></subitem>
+			<subitem name="TRIZ와 기술문제 해결" link="trizworld/solution"></subitem>
+			<subitem name="TRIZ와 미래기술 개발" link="trizworld/development"></subitem>
+			<subitem name="TRIZ와 창의성" link="trizworld/creativity"></subitem>
+		</item>
+		<item name="주요 사업" link="enterprise" condition="hide">
+			<subitem name="주요 사업" link="enterprise/home"></subitem>
+			<subitem name="TRIZ 연구&amp;보급" link="enterprise/supply"></subitem>
+			<subitem name="트리즈 전문가 양성" link="enterprise/trainexp"></subitem>
+			<subitem name="기업 컨설팅" link="enterprise/consulting"></subitem>
+			<subitem name="창의적 개발 교육" link="enterprise/creative"></subitem>
+			<subitem name="출판" link="enterprise/publishing"></subitem>
+		</item>
+<!-- 		
+		<item name="소프트웨어" link="software" icon="assets/images/mobile/menu/icon_software.png" platform="desktop">
+			<subitem name="TRIZSoft란" link="software/trizsoft"></subitem>
+		</item>
+ -->
+ 		<item name="온라인 판매" link="onlineshop" icon="assets/images/mobile/menu/icon_shopping.png">
+			<subitem name="출판몰" link="onlineshop/publication"></subitem>
+			<subitem name="소프트웨어" link="onlineshop/software" platform="desktop"></subitem>
+		</item>
+		<item name="트리즈 교육" link="education" icon="assets/images/mobile/menu/icon_education.png">
+			<subitem name="Level 1 교육" link="education/level1"></subitem>
+			<subitem name="Level 2 교육" link="education/level2"></subitem>
+			<subitem name="Level 3 교육" link="education/level3"></subitem>
+			<subitem name="창의성 개발 교육" link="education/creative"></subitem>
+		</item>
+		<item name="기업 컨설팅" link="consulting" icon="assets/images/mobile/menu/icon_consult.png">
+			<subitem name="How to 컨설팅" link="consulting/howto"></subitem>
+			<subitem name="컨설팅 알고리즘" link="consulting/algorithm"></subitem>
+			<!--<subitem name="해결 실제 사례" link="http://www.naver.com"></subitem>-->
+			<subitem name="상담" link="consulting/advice"></subitem>
+		</item>
+		<item name="TRIZ e-learning" link="e_learning" icon="assets/images/mobile/menu/icon_learning.png">
+			<!--<subitem name="교육 소개" link="e_learning/intro-education"></subitem>-->
+			<subitem name="TRIZ 강의" link="e_learning/basic"></subitem>
+			<subitem name="Level 1" link="e_learning/education?level=1"></subitem>
+			<subitem name="Level 2" link="e_learning/education?level=2"></subitem>
+			<subitem name="Level 3" link="e_learning/education?level=3"></subitem>
+			<subitem name="강의 자료실" link="e_learning/reference"></subitem>
+		</item>
+		<item name="링크" link="link" condition="hide">
+			<subitem name="주요기관 및 파트너" link="link/partner"></subitem>
+		</item>
+		<item name="커뮤니티" link="community" icon="assets/images/mobile/menu/icon_community.png">
+			<subitem name="News" link="community/notice"></subitem>
+			<subitem name="Q&amp;A" link="community/qna"></subitem>
+			<subitem name="자주하는 질문" link="community/FQA"></subitem>
+			<subitem name="이야기방" link="community/communityRoom"></subitem>
+			<subitem name="갤러리" link="community/gallery"></subitem>
+			<subitem name="e-class" link="eclass"></subitem>
+		</item>
+		<item name="멤버" link="member" condition="hide">
+			<subitem name="로그인" link="member/login"></subitem>
+			<subitem name="회원가입" link="member/signin"></subitem>
+			<subitem name="아이디/비밀번호 찾기" link="member/inquiry"></subitem>
+		</item>
+		<item name="사이트맵" link="sitemap" condition="hide">
+			<subitem name="사이트맵" link="sitemap"></subitem>
+		</item>
+		<item name="MY PAGE" link="mypage/modify" condition="login" icon="assets/images/mobile/menu/icon_mypage.png">
+			<!-- <subitem name="내 정보" link="mypage/home"></subitem> -->
+			<subitem name="회원정보 수정" link="mypage/modify"></subitem>
+			<subitem name="회원탈퇴" link="mypage/leave"></subitem>
+		</item>
+		<item name="관리자" link="admin" condition="admin" icon="assets/images/mobile/menu/icon_admin.png">
+			<subitem name="메일링 시스템" link="admin/mailing"></subitem>
+			<subitem name="회원 관리" link="admin/member"></subitem>
+			<subitem name="소프트웨어 등록" link="admin/regsoft"></subitem>
+			<subitem name="출판물 등록" link="admin/regpub"></subitem>
+		</item>
+	</navitab>
+
+	<base>
+		<item name="HOME" link="home"></item>
+		<item name="LOGIN" link="javascript:login()" condition="logout"></item>
+		<item name="LOGOUT" link="javascript:logout()" condition="login"></item>
+		<item name="CONTACT US" link="intro/location"></item>
+		<item name="SITEMAP" link="sitemap"></item>
+	</base>
+</root>

@@ -1,0 +1,99 @@
+.pub-box
+{
+	padding: 15px 10px;
+}
+
+.pub-box:not(:last-of-type)
+{
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.pub-top
+{
+	overflow: auto;
+	padding-bottom: 30px;
+	border-bottom: 1px #c0c0c0 solid;
+}
+
+.pub-bot
+{}
+
+.pub-top > .pub-left
+{
+	float: left;
+}
+
+.pub-top > .pub-left > .pub-image
+{
+	width: 300px;
+	height: 400px;
+}
+
+.pub-top > .pub-left > .pub-image > img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.pub-top > .pub-right
+{
+	float: right;
+	width: 440px;
+	padding: 0px 20px;
+}
+
+.pub-text-list
+{}
+
+.pub-text-list > li
+{
+	padding: 2px 0px;
+}
+
+.pub-text-list > li > .pub-label
+{
+	width: 100px;
+	display: inline-block;
+}
+
+.pub-text-list > li > .pub-value
+{}
+
+.pub-name
+{
+	font-size: 24px;
+	font-weight: bold;
+	line-height: initial;
+	margin-bottom: 5px;
+}
+
+.pub-subtitle
+{
+	color: #a0a0a0;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+.pub-content-list
+{}
+
+.pub-content-list > li
+{}
+
+.pub-content-list > li > .pub-title
+{
+	font-size: 18px;
+	font-weight: bold;
+	line-height: initial;
+	padding: 7px 0px;
+}
+
+.pub-content-list > li > .pub-content
+{
+	padding: 5px 0px 30px 15px;
+}
+
+.pub-content-list > li:not(:last-of-type) > .pub-content
+{
+	border-bottom: 1px #e0e0e0 solid;
+}

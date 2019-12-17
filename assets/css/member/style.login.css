@@ -1,0 +1,102 @@
+.login-main
+{
+	overflow: auto;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	padding: 30px 0px;
+}
+
+/* Left login contents */
+.login-left
+{
+	width: 40%;
+	float: left;
+	text-align: center;
+	padding: 40px 0px;
+}
+
+/* Right login contents */
+.login-right
+{
+	padding-right: 25px;
+	float: right;
+}
+
+.login-right > .welcome-box
+{}
+
+.login-right > .login-box
+{
+	overflow: auto;
+	background-color: black;
+	display: inline-block;
+	padding: 20px 40px;
+	margin-top: 20px;
+}
+
+.login-right > .login-box table
+{
+	font-size: 11px;
+	font-family: "µ¸¿ò", Dotum, "±¼¸²", Gulim, "Lucida Grande", Tahoma, Verdana;
+	float: left;
+	border-collapse: collapse;
+	margin-right: 10px;
+}
+
+.login-right > .login-box table input
+{
+	width: 140px;
+	height: 20px;
+	padding: 2px 3px 0 3px;
+	margin: 1px 0px 3px 0px;
+	border: 1px #5a5a5a solid;
+	background-color: #4a4a4a;
+	letter-spacing: 0px;
+	line-height: 1.1em;
+	font-family: Dotum;
+	font-size: 12px;
+}
+
+.login-button
+{
+	padding: 13px 11px;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 12px;
+	color: white;
+	cursor: pointer;
+	float: left;
+}
+
+/* Support content */
+.login-support
+{
+	line-height: 1.3em;
+}
+
+.login-support > ul
+{}
+
+.login-support > ul > li
+{
+	border-bottom: 1px #4a4a4a solid;
+	padding: 20px 30px;
+	margin: 0px 0px;
+	font-size: 11px;
+	font-family: Dotum;
+}
+
+.login-support > ul > li:last-child > ul
+{
+}
+
+.login-support > ul > li:last-child > ul > li
+{
+	margin: 0px;
+	padding: 0px;
+	text-indent: -20px;
+}
+
+.login-support > ul > li > ul > li
+{
+}

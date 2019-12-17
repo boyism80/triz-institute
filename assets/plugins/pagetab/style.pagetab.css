@@ -1,0 +1,35 @@
+.pagetab
+{
+	text-align: center;
+	padding: 15px 0px;
+}
+
+.pagetab > .icon
+{
+	margin: 0px 5px;
+	cursor: pointer;
+}
+
+.pagetab > .element
+{
+	margin: 0px 5px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.pagetab > .element[selected]
+{
+	color: orange;
+}
+
+.pagetab > .first
+{}
+
+.pagetab > .prev
+{}
+
+.pagetab > .next
+{}
+
+.pagetab > .last
+{}

@@ -1,0 +1,49 @@
+.footer .section
+{
+	width: 1200px;
+}
+
+.com-info
+{
+	font-size: 12px;
+	color: #555555;
+	margin-right: 67px;
+	display: inline-block;
+}
+
+.com-info .menu
+{
+	margin-bottom: 8px;
+}
+
+.com-info .menu > li
+{
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+	padding-right: 5px;
+	margin-right: 5px;
+	border-right: 1px #c0c0c0 solid;
+}
+
+.com-info .menu > li:last-child
+{
+	border-right: none;
+}
+
+.icon-banner
+{
+	display: inline-block;
+	position: relative;
+}
+
+.icon-banner .item 
+{
+	display: inline-block;
+	position: absolute;
+}
+
+.icon-banner .item > img
+{
+	width: 160px;
+}

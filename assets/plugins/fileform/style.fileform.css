@@ -1,0 +1,68 @@
+.fileform .uploadform
+{
+	position: relative;
+	overflow: hidden;
+}
+
+.fileform .uploadform .hidden-file
+{
+	opacity: 0;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	cursor: pointer;
+}
+
+.fileform .list
+{
+	width: 400px;
+	height: 60px;
+	display: block;
+}
+
+.fileform .capacity-viewer
+{
+	width: 150px;
+	display: inline-block;
+	border: 1px #c0c0c0 solid;
+}
+
+.fileform .capacity-viewer .current-range
+{
+	width: 0%;
+	height: 10px;
+	display: block;
+}
+
+.thumbnail-list
+{
+	margin: 0px 0px;
+}
+
+.thumbnail-list img
+{
+}
+
+.thumbnail-list > .thumbnail-item
+{
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.thumbnail-list > .thumbnail-item[selected]
+{
+	border: 1px red solid;
+}
+
+.fileform .default-button
+{
+	margin-left: 0px;
+	float: left;
+}
+
+.fileform .ctrl-file-btns
+{
+	position: relative;
+	margin-bottom: 5px;
+	overflow: auto;
+}

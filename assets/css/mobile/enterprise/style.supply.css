@@ -1,0 +1,136 @@
+.content-box
+{
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+.content-intro
+{
+	height: 40vw;
+}
+
+.content-box .box-left
+{
+	width: 60%;
+	height: 100%;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 10px;
+	vertical-align: top;
+}
+
+.content-box[type="02"] .box-left
+{
+	padding-top: 0px;
+}
+
+.content-box .box-left > img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.content-box .box-right
+{
+	width: 38%;
+	height: 100%;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.content-box .box-top
+{
+	display: inline-block;
+	width: 100%;
+	height: 60%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.content-box[type="01"] .box-top
+{
+	border-left: 0.5vw #309DE9 solid;
+}
+
+.content-box[type="02"] .box-top
+{
+	border-right: 0.5vw #309DE9 solid;
+}
+
+.content-box .box-top > img
+{
+	width: 70%;
+	position: absolute;
+	bottom: 0px;
+}
+
+.content-box[type="01"] .box-top > img
+{
+	left: 1vw;
+}
+
+.content-box[type="02"] .box-top > img
+{
+	right: 1vw;
+}
+
+.content-box .box-bot
+{
+	height: 40%;
+}
+
+.content-box[type="02"] .box-bot
+{
+	text-align: right;
+}
+
+.content-intro .title
+{
+	font-size: 3vw;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.content-intro .desc
+{
+	font-size: 2vw;
+}
+
+.box-explain
+{
+	font-size: 2vw;
+	margin-top: 10px;
+}
+
+.content-box[type="03"] .content-intro
+{
+	height: auto;
+}
+
+.content-box[type="03"] .title
+{}
+
+.pics
+{
+	border-top: 0.5vw #309de9 solid;
+	margin: 5px 0px;
+	padding: 5px 0px;
+	text-align: center;
+}
+
+.pics > img
+{
+	width: 40%;
+}
+
+
+.content-box[type="04"] .box-top
+{
+	border-bottom: 0.5vw #309de9 solid;
+	font-size: 2vw;
+	font-weight: bold;
+	display: flex;
+	align-items: flex-end;
+	padding-bottom: 5px;
+	height: 80%;
+}
