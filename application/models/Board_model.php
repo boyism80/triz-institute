@@ -295,6 +295,13 @@ class Board_model extends CI_Model {
         return true;
     }
 
+    //
+    // existsBoard
+    //  게시글이 존재하는지 확인
+    //
+    // bindex
+    //  게시글 번호
+    //
     public function existsBoard($bindex) {
 
         $this->db->trans_begin();
@@ -308,6 +315,16 @@ class Board_model extends CI_Model {
         return true;
     }
 
+    //
+    // get
+    //  게시글 정보를 반환
+    //
+    // btype
+    //  게시판 타입
+    //
+    // index
+    //  게시글 번호
+    //
     public function get($btype, $index) {
 
         if($this->exists($btype) == false)
@@ -346,6 +363,13 @@ class Board_model extends CI_Model {
         return $row;
     }
 
+    //
+    // getFixed
+    //  상단 고정 게시글 얻기
+    //
+    // btype
+    //  게시글 타입
+    //
     public function getsFixed($btype) {
 
         if(is_string($btype))
@@ -378,6 +402,25 @@ class Board_model extends CI_Model {
         return $rows;
     }
 
+    //
+    // gets
+    //  여러 게시글 얻기
+    //
+    // btype
+    //  게시판 타입
+    //
+    // count
+    //  게시글 갯수
+    //
+    // offset
+    //  게시글 시작 번호
+    //
+    // keyword
+    //  검색 키워드
+    //
+    // searchType
+    //  검색 타입
+    //
     public function gets($btype, $count = null, $offset = null, $keyword = null, $searchType = null) {
 
         if($this->exists($btype) == false)
@@ -466,6 +509,16 @@ class Board_model extends CI_Model {
         return $rows;
     }
 
+    //
+    // count
+    //  게시글 갯수 얻기
+    //
+    // keyword
+    //  검색 키워드
+    //
+    // searchType
+    //  검색 타입
+    //
     public function count($btype, $keyword = null, $searchType = null) {
 
         if($this->exists($btype) == false)
@@ -475,6 +528,22 @@ class Board_model extends CI_Model {
         return count($boards);
     }
 
+    //
+    // addBoard
+    //  게시판 추가
+    //
+    // id
+    //  게시판 id
+    //
+    // rauth
+    //  읽기 권한
+    //
+    // wauth
+    //  쓰기 권한
+    //
+    // private
+    //  개인 게시판(자신만 볼 수 있는지 여부)
+    //
     public function addBoard($id, $name, $rauth = 0, $wauth = 1, $private = 0) {
 
         $user                       = $this->session->userdata('user');
@@ -509,6 +578,28 @@ class Board_model extends CI_Model {
         return true;
     }
 
+    //
+    // add
+    //  게시글 추가
+    //
+    // btype
+    //  게시판 타입
+    //
+    // title
+    //  게시판 제목
+    //
+    // content
+    //  게시판 내용
+    //
+    // files
+    //  첨부 파일 리스트
+    //
+    // thumbnail
+    //  게시글 썸네일
+    //
+    // fix
+    //  상단 고정 여부
+    //
     public function add($btype, $title, $content, $files, $thumbnail = null, $fix = false) {
 
         $user               = $this->session->userdata('user');
@@ -547,6 +638,10 @@ class Board_model extends CI_Model {
         return $bindex;
     }
 
+    //
+    // delete
+    //  게시글 삭제
+    //
     public function delete($index) {
 
         $user               = $this->session->userdata('user');
@@ -574,6 +669,10 @@ class Board_model extends CI_Model {
         return true;
     }
 
+    //
+    // modify
+    //  게시글 수정
+    //
     public function modify($btype, $bindex, $title, $content, $files, $thumbnail = null, $fix = false) {
 
         $user               = $this->session->userdata('user');
@@ -617,6 +716,10 @@ class Board_model extends CI_Model {
         return $bindex;
     }
 
+    //
+    // showBoard
+    //  등록된 게시글을 표시해줌
+    //
     public function showBoard($dbname, $mode, $index, $option = array(), $parameters = array()) {
 
         if(isset($option['thumbnail']) == false)
