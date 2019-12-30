@@ -6,679 +6,729 @@ include_once APPPATH . 'core/exceptions/NoCertificateException.php';
 
 class Board_model extends CI_Model {
 
-	const NEW_DATE_LIMIT = 3;
+    const NEW_DATE_LIMIT = 3;
 
-	private $_searchopt		= array(array('text' => '글제목', 'type' => 'title'),
-									array('text' => '작성자', 'type' => 'uname'),
-									array('text' => '아이디', 'type' => 'uid'),
-									array('text' => '이메일', 'type' => 'email'),
-									array('text' => '글내용', 'type' => 'content'));
+    private $_searchopt     = array(array('text' => '글제목', 'type' => 'title'),
+                                    array('text' => '작성자', 'type' => 'uname'),
+                                    array('text' => '아이디', 'type' => 'uid'),
+                                    array('text' => '이메일', 'type' => 'email'),
+                                    array('text' => '글내용', 'type' => 'content'));
 
-	private $exceptTagNames	= array('script', 'embed');
+    private $exceptTagNames = array('script', 'embed');
 
-	private $mobileTabSize	= 5;
-	private $pcTabSize		= 10;
+    private $mobileTabSize  = 5;
+    private $pcTabSize      = 10;
 
-	private $defcount		= 20;
-	private $defTabSize		= 0;
-	private $defViewSize	= 10;
-	private $maxUploadSize	= array();
+    private $defcount       = 20;
+    private $defTabSize     = 0;
+    private $defViewSize    = 10;
+    private $maxUploadSize  = array();
+
+    function __construct() {
+
+        parent::__construct();
+        $this->load->model('member_model');
+        $this->load->model('comment_model');
+        $this->load->model('file_model');
+
+        $this->maxUploadSize = array('attach' => 10 * pow(1024, 2), 'image' => 10 * pow(1024, 2), 'video' => 30 * pow(1024, 2));
+        $this->defTabSize    = $this->agent->is_mobile() ? $this->mobileTabSize : $this->pcTabSize;
+    }
+
+
+    //
+    // bname2Type
+    //  게시판 이름을 게시판 타입으로 변환
+    //
+    private function bname2Type($bname) {
 
-	function __construct() {
+        $this->db->trans_begin();
+        $sql                = "SELECT idx FROM boardopt WHERE id = '$bname' AND deleted = 0 LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		parent::__construct();
-		$this->load->model('member_model');
-		$this->load->model('comment_model');
-		$this->load->model('file_model');
+        if($query->num_rows() == 0)
+            throw new Exception($sql);
+            // throw new Exception('Cannot find DB : ' . $bname);
 
-		$this->maxUploadSize		= array('attach' => 10 * pow(1024, 2), 'image' => 10 * pow(1024, 2), 'video' => 30 * pow(1024, 2));
-		$this->defTabSize			= $this->agent->is_mobile() ? $this->mobileTabSize : $this->pcTabSize;
-	}
+        $row                = $query->row_array();
+        $btype              = intval($row['idx']);
 
+        return $btype;
+    }
 
-	private function bname2Type($bname) {
+    //
+    // btype2Name
+    //  게시판 타입을 게시판 이름으로 변환
+    //
+    private function btype2Name($btype) {
 
-		$this->db->trans_begin();
-		$sql				= "SELECT idx FROM boardopt WHERE id = '$bname' AND deleted = 0 LIMIT 1";
-		$query				= $this->db->query($sql);
-		$this->db->trans_complete();
+        $this->db->trans_begin();
+        $sql                = "SELECT id FROM boardopt WHERE idx = $btype AND deleted = 0 LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		if($query->num_rows() == 0)
-			throw new Exception($sql);
-			// throw new Exception('Cannot find DB : ' . $bname);
+        if($query->num_rows() == 0)
+            throw new Exception('Cannot find DB : ' . $btype);
 
-		$row 				= $query->row_array();
-		$btype				= intval($row['idx']);
+        $row                = $query->row_array();
+        $bname              = $row['id'];
 
-		return $btype;
-	}
+        return $bname;
+    }
 
-	private function btype2Name($btype) {
+    // //
+    // // boardGetsState
+    // //  현재 세션에 대한 게시판의 상태 획득
+    // //
+    // private function boardGetsState($btype, $offset, $count) {
 
-		$this->db->trans_begin();
-		$sql				= "SELECT id FROM boardopt WHERE idx = $btype AND deleted = 0 LIMIT 1";
-		$query				= $this->db->query($sql);
-		$this->db->trans_complete();
+    //     $user               = $this->session->userdata('user');
+    //     $privilege          = $this->inspect($btype, 'read');
+    //     $state              = null;
 
-		if($query->num_rows() == 0)
-			throw new Exception('Cannot find DB : ' . $btype);
+    //     // Board type : private board
+    //     if($privilege['private']) {
 
-		$row 				= $query->row_array();
-		$bname				= $row['id'];
+    //         if($user == null)
+    //             throw new RequireLoginException();
 
-		return $bname;
-	}
+    //         $state          = $user['admin'] === true ? 'all' : 'private';
+    //     } else {
 
-	private function boardGetsState($btype, $offset, $count) {
+    //         $state          = 'all';
+    //     }
 
-		$user 				= $this->session->userdata('user');
-		$privilege			= $this->inspect($btype, 'read');
-		$state				= null;
+    //     // Limit boards count
+    //     if($offset != null)
+    //         $state          .= ' -o';
 
-		// Board type : private board
-		if($privilege['private']) {
+    //     if($count != null)
+    //         $state          .= ' -c';
 
-			if($user == null)
-				throw new RequireLoginException();
+    //     return $state;
+    // }
 
-			$state			= $user['admin'] === true ? 'all' : 'private';
-		} else {
 
-			$state			= 'all';
-		}
+    //
+    // addFile
+    //  게시판에 파일을 추가한다.
+    //
+    // bindex
+    //  게시물 인덱스
+    //
+    // title
+    //  파일이름
+    //
+    // path
+    //  파일경로
+    //
+    // ident
+    //  식별자
+    //
+    private function addFile($bindex, $title, $path, $ident) {
 
-		// Limit boards count
-		if($offset != null)
-			$state			.= ' -o';
+        if($this->existsBoard($bindex) == false)
+            return fasle;
 
-		if($count != null)
-			$state			.= ' -c';
+        $this->db->trans_begin();
+        $sql                = "INSERT INTO files (title, path, ident, bindex) VALUES ('$title', '$path', '$ident', $bindex)";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		return $state;
-	}
+        return true;
+    }
 
-	private function addFile($bindex, $title, $path, $ident) {
+    private function getsFromTitle($keyword) {
 
-		if($this->existsBoard($bindex) == false)
-			return fasle;
+        return "title LIKE '%$keyword%'";
+    }
+
+    private function getsFromUname($uname) {
 
-		$this->db->trans_begin();
-		$sql 				= "INSERT INTO files (title, path, ident, bindex) VALUES ('$title', '$path', '$ident', $bindex)";
-		$query 				= $this->db->query($sql);
-		$this->db->trans_complete();
+        $uidx               = $this->member_model->name2Index($uname);
+
+        return "user = $uidx";
+    }
 
-		return true;
-	}
+    private function getsFromUid($uid) {
 
-	private function getsFromTitle($keyword) {
+        $uidx               = $this->member_model->id2Index($uid);
 
-		return "title LIKE '%$keyword%'";
-	}
+        return "user = $uidx";
+    }
 
-	private function getsFromUname($uname) {
+    private function getsFromEmail($email) {
 
-		$uidx				= $this->member_model->name2Index($uname);
+        $uidx               = $this->member_model->email2Index($email);
 
-		return "user = $uidx";
-	}
+        return "user = $uidx";
+    }
 
-	private function getsFromUid($uid) {
+    private function getsFromContent($content) {
 
-		$uidx				= $this->member_model->id2Index($uid);
+        return "content LIKE '%$content%'";
+    }
 
-		return "user = $uidx";
-	}
+    //
+    // privilege
+    //  접근 권한을 얻는다.
+    //
+    // btype
+    //  게시판 타입
+    //
+    public function privilege($btype) {
 
-	private function getsFromEmail($email) {
+        // 게시판 이름인 경우 게시판 타입으로 변환
+        if(is_string($btype))
+            $btype          = $this->bname2Type($btype);
 
-		$uidx				= $this->member_model->email2Index($email);
+        // 게시판 타입 정보를 얻어온다.
+        $this->db->trans_begin();
+        $sql                = "SELECT * FROM boardopt WHERE idx = $btype AND deleted = 0 LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		return "user = $uidx";
-	}
+        if($query->num_rows() == 0)
+            throw new Exception('Cannot find DB : ' . $bname);
 
-	private function getsFromContent($content) {
+        // 읽기권한, 쓰기권한 확인
+        $row                = $query->row_array();
+        $row['rauth']       = intval($row['rauth']);
+        if($row['rauth'] == -1)
+            $row['rauth']   = 2147483647; // max integer
 
-		return "content LIKE '%$content%'";
-	}
+        $row['wauth']       = intval($row['wauth']);
+        if($row['wauth'] == -1)
+            $row['wauth']   = 2147483647; // max integer
 
-	public function privilege($btype) {
+        $ret                = array();
+        $user               = $this->session->userdata('user');
 
-		if(is_string($btype))
-			$btype 			= $this->bname2Type($btype);
 
-		$this->db->trans_begin();
-		$sql 				= "SELECT * FROM boardopt WHERE idx = $btype AND deleted = 0 LIMIT 1";
-		$query				= $this->db->query($sql);
-		$this->db->trans_complete();
+        if($user == false) { // 비로그인의 경우 전체공개만 허용
 
-		if($query->num_rows() == 0)
-			throw new Exception('Cannot find DB : ' . $bname);
+            $ret['read']    = ($row['rauth'] === 0) ? true : false;
+            $ret['write']   = ($row['wauth'] === 0) ? true : false;
+        } else if($user['admin'] === true) { // 세션이 관리자인 경우
 
-		$row 				= $query->row_array();
-		$row['rauth']		= intval($row['rauth']);
-		$row['wauth']		= intval($row['wauth']);
-		if($row['rauth'] == -1)
-			$row['rauth']	= 2147483647; // max integer
-		if($row['wauth'] == -1)
-			$row['wauth']	= 2147483647; // max integer
+            $ret['read']    = true;
+            $ret['write']   = true;
+        } else { // 세션의 권한이 부족한 경우
+            $ret['read']    = ($user['privilege'] >= $row['rauth']);
+            $ret['write']   = ($user['privilege'] >= $row['wauth']);
+        }
 
-		$ret 				= array();
-		$user 				= $this->session->userdata('user');
+        if($ret['read'] == false || $ret['write'] == false) {
 
-		if($user == false) {
+            if($user == false)
+                $ret['exception']   = new RequireLoginException();
+            else
+                $ret['exception']   = new NoPrivilegeException();
+        }
 
-			$ret['read']	= ($row['rauth'] === 0) ? true : false;
-			$ret['write']	= ($row['wauth'] === 0) ? true : false;
-		} else if($user['admin'] === true) {
+        // 자신만 볼 수 있는 게시판 형식인 경우
+        $ret['private']     = (intval($row['private']) != 0) && ($user != false);
 
-			$ret['read']	= true;
-			$ret['write']	= true;
-		} else {
-			$ret['read']	= ($user['privilege'] >= $row['rauth']);
-			$ret['write']	= ($user['privilege'] >= $row['wauth']);
-		}
+        return $ret;
+    }
 
-		if($ret['read'] == false || $ret['write'] == false) {
+    //
+    // inspect
+    //  게시판 열람 권한 확인
+    //
+    // bname
+    //  게시판 이름
+    //
+    // mode
+    //  write인 경우 읽기, read인 경우 쓰기의 권한
+    //
+    public function inspect($bname, $mode = null) {
 
-			if($user == false)
-				$ret['exception']	= new RequireLoginException();
-			else
-				$ret['exception']	= new NoPrivilegeException();
-		}
+        if($mode != 'write')
+            $mode           = 'read';
 
-		// Is board private?
-		$ret['private']		= (intval($row['private']) != 0) && ($user != false);
+        if(is_integer($bname))
+            $bname          = $this->btype2Name($bname);
 
-		return $ret;
-	}
+        $privilege          = $this->privilege($bname);
+        if($privilege[$mode] == false)
+            throw $privilege['exception'];
 
-	public function inspect($dbname, $mode = null) {
+        return $privilege;
+    }
 
-		if($mode != 'write')
-			$mode 			= 'read';
+    public function inspectException($e) {
 
-		if(is_integer($dbname))
-			$dbname 		= $this->btype2Name($dbname);
+        try {
 
-		$privilege			= $this->privilege($dbname);
-		if($privilege[$mode] == false)
-			throw $privilege['exception'];
+            echo '<script type="text/javascript">';
+            throw $e;
+            
+        } catch (RequireLoginException $e) {
 
-		return $privilege;
-	}
+            echo 'location.href = "' . base_url() . 'member/login';
+            echo '?path=' . uri_string() . '";';
+            
+        } catch (Exception $e) {
 
-	public function inspectException($e) {
+            echo 'alert("' . $e->getMessage() . '");';
+            echo 'history.back();';
+        }
+        
+        echo '</script>';
+    }
 
-		try {
+    public function exists($btype) {
 
-			echo '<script type="text/javascript">';
-			throw $e;
-			
-		} catch (RequireLoginException $e) {
+        if(is_string($btype))
+            $btype          = $this->bname2Type($btype);
 
-			echo 'location.href = "' . base_url() . 'member/login';
-			echo '?path=' . uri_string() . '";';
-			
-		} catch (Exception $e) {
+        $this->db->trans_begin();
+        $sql                = "SELECT * FROM boardopt WHERE idx = $btype AND deleted = 0 LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-			echo 'alert("' . $e->getMessage() . '");';
-			echo 'history.back();';
-		}
-		
-		echo '</script>';
-	}
+        if($query->num_rows() == 0)
+            return false;
 
-	public function exists($btype) {
+        return true;
+    }
 
-		if(is_string($btype))
-			$btype			= $this->bname2Type($btype);
+    public function existsBoard($bindex) {
 
-		$this->db->trans_begin();
-		$sql 				= "SELECT * FROM boardopt WHERE idx = $btype AND deleted = 0 LIMIT 1";
-		$query				= $this->db->query($sql);
-		$this->db->trans_complete();
+        $this->db->trans_begin();
+        $sql                = "SELECT * FROM boards WHERE idx = $bindex AND deleted = 0 LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		if($query->num_rows() == 0)
-			return false;
+        if($query->num_rows() == 0)
+            return false;
 
-		return true;
-	}
+        return true;
+    }
 
-	public function existsBoard($bindex) {
+    public function get($btype, $index) {
 
-		$this->db->trans_begin();
-		$sql 				= "SELECT * FROM boards WHERE idx = $bindex AND deleted = 0 LIMIT 1";
-		$query				= $this->db->query($sql);
-		$this->db->trans_complete();
+        if($this->exists($btype) == false)
+            throw new Exception('존재하지 않는 게시판입니다.');
 
-		if($query->num_rows() == 0)
-			return false;
+        if($this->existsBoard($index) == false)
+            throw new Exception('존재하지 않는 게시글입니다.');
 
-		return true;
-	}
+        if(is_string($btype))
+            $btype          = $this->bname2Type($btype);
 
-	public function get($btype, $index) {
+        $privilege              = $this->inspect($btype, 'read');
 
-		if($this->exists($btype) == false)
-			throw new Exception('존재하지 않는 게시판입니다.');
+        // INCREMENT READ VALUE BY 1
+        $this->db->trans_begin();
+        $sql                = "UPDATE boards SET hit = hit + 1 WHERE idx = $index";
+        $query              = $this->db->query($sql);
 
-		if($this->existsBoard($index) == false)
-			throw new Exception('존재하지 않는 게시글입니다.');
+        $sql                = "SELECT boards.idx, boards.title, boards.content, boards.thumbnail, DATE(boards.date) as date, boards.user, boards.fix, boards.hit, user.name as uname
+                                FROM boards, user
+                                WHERE boards.idx = $index AND boards.user = user.idx AND boards.deleted = 0 LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
+        $row                = $query->row_array();
+        if($privilege['private']) {
 
-		if(is_string($btype))
-			$btype			= $this->bname2Type($btype);
+            $user           = $this->session->userdata('user');
+            if($user['idx'] != intval($row['user']) && $user['admin'] === false)
+                throw new Exception('접근할 수 없습니다.');
+        }
 
-		$privilege				= $this->inspect($btype, 'read');
+        $user               = $this->session->userdata('user');
+        $row['fix']         = (boolean)intval($row['fix']);
+        $row['own']         = $user != null && ($user['idx'] == intval($row['user']));
+        $row['files']       = $this->file_model->gets($index);
+        return $row;
+    }
 
-		// INCREMENT READ VALUE BY 1
-		$this->db->trans_begin();
-		$sql 				= "UPDATE boards SET hit = hit + 1 WHERE idx = $index";
-		$query 				= $this->db->query($sql);
+    public function getsFixed($btype) {
 
-		$sql				= "SELECT boards.idx, boards.title, boards.content, boards.thumbnail, DATE(boards.date) as date, boards.user, boards.fix, boards.hit, user.name as uname
-								FROM boards, user
-								WHERE boards.idx = $index AND boards.user = user.idx AND boards.deleted = 0 LIMIT 1";
-		$query 				= $this->db->query($sql);
-		$this->db->trans_complete();
-		$row 				= $query->row_array();
-		if($privilege['private']) {
+        if(is_string($btype))
+            $btype          = $this->bname2Type($btype);
 
-			$user 			= $this->session->userdata('user');
-			if($user['idx'] != intval($row['user']) && $user['admin'] === false)
-				throw new Exception('접근할 수 없습니다.');
-		}
+        $this->db->trans_begin();
+        $sql                    = "SELECT boards.idx, boards.title, boards.content, DATE(boards.date) as date, boards.thumbnail, boards.fix, boards.hit, user.name as uname
+                                   FROM boards, user
+                                   WHERE boards.btype = $btype AND boards.user = user.idx AND boards.fix = 1 AND boards.deleted = 0
+                                   ORDER BY boards.idx DESC";
+        $query                  = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		$user 				= $this->session->userdata('user');
-		$row['fix']			= (boolean)intval($row['fix']);
-		$row['own']			= $user != null && ($user['idx'] == intval($row['user']));
-		$row['files']		= $this->file_model->gets($index);
-		return $row;
-	}
+        $rows                   = $query->result_array();
+        // Append count of comment
+        for($i = 0; $i < count($rows); $i++) {
 
-	public function getsFixed($btype) {
+            $rows[$i]['idx']        = intval($rows[$i]['idx']);
+            $rows[$i]['fix']        = (boolean)intval($rows[$i]['fix']);
+            $rows[$i]['comments']   = count($this->comment_model->gets($rows[$i]['idx']));
 
-		if(is_string($btype))
-			$btype			= $this->bname2Type($btype);
+            $now                    = new DateTime();
+            $date                   = new DateTime($rows[$i]['date']);
+            $rows[$i]['new']        = ($now->format('U') - $date->format('U')) / (60*60*24) < self::NEW_DATE_LIMIT;
+            
+            $files                  = $this->file_model->gets($rows[$i]['idx']);
+            $rows[$i]['files']      = isset($files['attach-files']) && count($files['attach-files']) != 0;
+        }
 
-		$this->db->trans_begin();
-		$sql					= "SELECT boards.idx, boards.title, boards.content, DATE(boards.date) as date, boards.thumbnail, boards.fix, boards.hit, user.name as uname
-									FROM boards, user
-									WHERE boards.btype = $btype AND boards.user = user.idx AND boards.fix = 1 AND boards.deleted = 0
-									ORDER BY boards.idx DESC";
-		$query					= $this->db->query($sql);
-		$this->db->trans_complete();
+        return $rows;
+    }
 
-		$rows 					= $query->result_array();
-		// Append count of comment
-		for($i = 0; $i < count($rows); $i++) {
+    public function gets($btype, $count = null, $offset = null, $keyword = null, $searchType = null) {
 
-			$rows[$i]['idx']		= intval($rows[$i]['idx']);
-			$rows[$i]['fix']		= (boolean)intval($rows[$i]['fix']);
-			$rows[$i]['comments']	= count($this->comment_model->gets($rows[$i]['idx']));
+        if($this->exists($btype) == false)
+            throw new Exception('존재하지 않는 게시판입니다.');
 
-			$now 					= new DateTime();
-			$date 					= new DateTime($rows[$i]['date']);
-			$rows[$i]['new']		= ($now->format('U') - $date->format('U')) / (60*60*24) < self::NEW_DATE_LIMIT;
-			
-			$files					= $this->file_model->gets($rows[$i]['idx']);
-			$rows[$i]['files']		= isset($files['attach-files']) && count($files['attach-files']) != 0;
-		}
+        if(is_string($btype))
+            $btype          = $this->bname2Type($btype);
 
-		return $rows;
-	}
+        if($offset < 0)
+            throw new Exception('잘못된 접근입니다.');
 
-	public function gets($btype, $count = null, $offset = null, $keyword = null, $searchType = null) {
+        // Base sql
+        $this->db->trans_begin();
+        $sql                =  "SELECT boards.idx, boards.title, boards.content, DATE(boards.date) as date, boards.thumbnail, boards.fix, boards.hit, user.name as uname 
+                                FROM boards, user 
+                                WHERE boards.btype = $btype AND boards.user = user.idx AND boards.fix = 0 AND boards.deleted = 0";
 
-		if($this->exists($btype) == false)
-			throw new Exception('존재하지 않는 게시판입니다.');
+        $privilege          = $this->privilege($btype);
+        if($privilege['private']) {
 
-		if(is_string($btype))
-			$btype			= $this->bname2Type($btype);
+            $user           = $this->session->userdata('user');
+            if($user == null)
+                throw new RequireLoginException();
 
-		if($offset < 0)
-			throw new Exception('잘못된 접근입니다.');
+            if($user['admin'] == false)
+                $sql        .= ' AND boards.user = ' . $user['idx'];
+        }
 
-		// Base sql
-		$this->db->trans_begin();
-		$sql				=  "SELECT boards.idx, boards.title, boards.content, DATE(boards.date) as date, boards.thumbnail, boards.fix, boards.hit, user.name as uname 
-								FROM boards, user 
-								WHERE boards.btype = $btype AND boards.user = user.idx AND boards.fix = 0 AND boards.deleted = 0";
+        // Conditional sql
+        switch($searchType) {
 
-		$privilege 			= $this->privilege($btype);
-		if($privilege['private']) {
+            case 'title':
+            $sql .= ' AND ${this->getsFromTitle($keyword)}';
+            break;
 
-			$user 			= $this->session->userdata('user');
-			if($user == null)
-				throw new RequireLoginException();
+            case 'uname':
+            $sql .= ' AND ${this->getsFromUname($keyword)}';
+            break;
 
-			if($user['admin'] == false)
-				$sql		.= ' AND boards.user = ' . $user['idx'];
-		}
+            case 'uid':
+            $sql .= ' AND ${this->getsFromUid($keyword)}';
+            break;
 
-		// Conditional sql
-		switch($searchType) {
+            case 'email':
+            $sql .= ' AND ${this->getsFromEmail($keyword)}';
+            break;
 
-			case 'title':
-			$sql							.= ' AND ' . $this->getsFromTitle($keyword);
-			break;
+            case 'content':
+            $sql .= ' AND ${this->getsFromContent($keyword)}';
+            break;
+        }
 
-			case 'uname':
-			$sql							.= ' AND ' . $this->getsFromUname($keyword);
-			break;
+        $sql .= " ORDER BY boards.idx DESC";
 
-			case 'uid':
-			$sql							.= ' AND ' . $this->getsFromUid($keyword);
-			break;
+        // Limit
+        if($offset != null && $count != null)
+            $sql .= " LIMIT $offset, $count";
+        else if($count != null)
+            $sql .= " LIMIT $count";
 
-			case 'email':
-			$sql							.= ' AND ' . $this->getsFromEmail($keyword);
-			break;
 
-			case 'content':
-			$sql							.= ' AND ' . $this->getsFromContent($keyword);
-			break;
-		}
 
-		$sql								.= " ORDER BY boards.idx DESC";
+        $query = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		// Limit
-		if($offset != null && $count != null)
-			$sql							.= " LIMIT $offset, $count";
-		else if($count != null)
-			$sql							.= " LIMIT $count";
+        $rows = $query->result_array();
 
 
+        for($i = 0; $i < count($rows); $i++) {
 
-		$query 								= $this->db->query($sql);
-		$this->db->trans_complete();
+            $rows[$i]['idx']                = intval($rows[$i]['idx']);
+            $rows[$i]['fix']                = (boolean)intval($rows[$i]['fix']);
+            $rows[$i]['comments']           = count($this->comment_model->gets($rows[$i]['idx']));
+            $now                            = new DateTime();
+            $date                           = new DateTime($rows[$i]['date']);
+            $rows[$i]['new']                = ($now->format('U') - $date->format('U')) / (60*60*24) < self::NEW_DATE_LIMIT;
 
-		$rows 								= $query->result_array();
+            $files                          = $this->file_model->gets($rows[$i]['idx']);
+            $rows[$i]['files']              = isset($files['attach-files']) && count($files['attach-files']) != 0;
 
+            $rows[$i]['preview']            = strip_tags($rows[$i]['content']);
+            if(mb_strlen($rows[$i]['preview']) > 30)
+                $rows[$i]['preview']        = mb_substr($rows[$i]['preview'], 0, 30) . '...';
+        }
+        
+        return $rows;
+    }
 
-		for($i = 0; $i < count($rows); $i++) {
+    public function count($btype, $keyword = null, $searchType = null) {
 
-			$rows[$i]['idx']				= intval($rows[$i]['idx']);
-			$rows[$i]['fix']				= (boolean)intval($rows[$i]['fix']);
-			$rows[$i]['comments']			= count($this->comment_model->gets($rows[$i]['idx']));
-			$now 							= new DateTime();
-			$date 							= new DateTime($rows[$i]['date']);
-			$rows[$i]['new']				= ($now->format('U') - $date->format('U')) / (60*60*24) < self::NEW_DATE_LIMIT;
+        if($this->exists($btype) == false)
+            throw new Exception('존재하지 않는 게시판입니다.');
 
-			$files							= $this->file_model->gets($rows[$i]['idx']);
-			$rows[$i]['files']				= isset($files['attach-files']) && count($files['attach-files']) != 0;
+        $boards             = $this->gets($btype, null, null, $keyword, $searchType);
+        return count($boards);
+    }
 
-			$rows[$i]['preview']			= strip_tags($rows[$i]['content']);
-			if(mb_strlen($rows[$i]['preview']) > 30)
-				$rows[$i]['preview']		= mb_substr($rows[$i]['preview'], 0, 30) . '...';
-		}
-		
-		return $rows;
-	}
+    public function addBoard($id, $name, $rauth = 0, $wauth = 1, $private = 0) {
 
-	public function count($btype, $keyword = null, $searchType = null) {
+        $user                       = $this->session->userdata('user');
+        if($user == null || $user['admin'] === false)
+            throw new NoPrivilegeException();
 
-		if($this->exists($btype) == false)
-			throw new Exception('존재하지 않는 게시판입니다.');
+        if($id == null || mb_strlen($id) == 0)
+            throw new Exception('게시판 아이디를 입력하세요.');
 
-		$boards				= $this->gets($btype, null, null, $keyword, $searchType);
-		return count($boards);
-	}
+        if($name == null || mb_strlen($name) == 0)
+            throw new Exception('게시판 이름을 입력하세요.');
 
-	public function addBoard($id, $name, $rauth = 0, $wauth = 1, $private = 0) {
+        $this->db->trans_begin();
+        $sql                        = "INSERT INTO boardopt (name, id, rauth, wauth, private) VALUES ('$name', '$id', $rauth, $wauth, $private)";
+        $query                      = $this->db->query($sql);
+        $boardIndex                 = $this->db->insert_id();
+        $this->db->trans_complete();
 
-		$user 						= $this->session->userdata('user');
-		if($user == null || $user['admin'] === false)
-			throw new NoPrivilegeException();
+        return $boardIndex;
+    }
 
-		if($id == null || mb_strlen($id) == 0)
-			throw new Exception('게시판 아이디를 입력하세요.');
+    private function isPostable($content) {
 
-		if($name == null || mb_strlen($name) == 0)
-			throw new Exception('게시판 이름을 입력하세요.');
+        $dom                = new DOMDocument();
+        $dom->loadHTML($content);
+        foreach($this->exceptTagNames as $tagName) {
 
-		$this->db->trans_begin();
-		$sql 						= "INSERT INTO boardopt (name, id, rauth, wauth, private) VALUES ('$name', '$id', $rauth, $wauth, $private)";
-		$query 						= $this->db->query($sql);
-		$boardIndex 				= $this->db->insert_id();
-		$this->db->trans_complete();
+            if($dom->getElementsByTagName($tagName)->length != 0)
+                return false;
+        }
 
-		return $boardIndex;
-	}
+        return true;
+    }
 
-	private function isPostable($content) {
+    public function add($btype, $title, $content, $files, $thumbnail = null, $fix = false) {
 
-		$dom 				= new DOMDocument();
-		$dom->loadHTML($content);
-		foreach($this->exceptTagNames as $tagName) {
+        $user               = $this->session->userdata('user');
+        if($user == null)
+            throw new RequireLoginException();
 
-			if($dom->getElementsByTagName($tagName)->length != 0)
-				return false;
-		}
+        if(mb_strlen($title) == 0)
+            throw new Exception('제목을 입력하세요');
 
-		return true;
-	}
+        if(mb_strlen($content) == 0)
+            throw new Exception('내용을 입력하세요');
 
-	public function add($btype, $title, $content, $files, $thumbnail = null, $fix = false) {
+        if(is_string($btype))
+            $btype          = $this->bname2Type($btype);
 
-		$user 				= $this->session->userdata('user');
-		if($user == null)
-			throw new RequireLoginException();
+        $currentDateTime    = date("Y-m-d H:i:s");
+        $fix                = $user['admin'] ? intval($fix) : 0;
 
-		if(mb_strlen($title) == 0)
-			throw new Exception('제목을 입력하세요');
+        if($this->isPostable($content) == false)
+            throw new Exception('게시할 수 없습니다.');
 
-		if(mb_strlen($content) == 0)
-			throw new Exception('내용을 입력하세요');
+        $this->db->trans_begin();
+        $sql                =  "INSERT INTO boards (btype, title, content, user, thumbnail, date, fix) 
+                                VALUES ($btype, '$title', '$content', ${user['idx']}, '$thumbnail', '$currentDateTime', $fix)";
 
-		if(is_string($btype))
-			$btype 			= $this->bname2Type($btype);
+        $query              = $this->db->query($sql);
+        $bindex             = $this->db->insert_id();
+        $this->db->trans_complete();
 
-		$userIndex			= $user['idx'];
-		$currentDateTime	= date("Y-m-d H:i:s");
-		$fix 				= $user['admin'] ? intval($fix) : 0;
+        if($files != null) {
 
-		if($this->isPostable($content) == false)
-			throw new Exception('게시할 수 없습니다.');
+            foreach($files as $file)
+                $this->addFile($bindex, $file['title'], $file['path'], $file['ident']);
+        }
 
-		$this->db->trans_begin();
-		$sql 				=  "INSERT INTO boards (btype, title, content, user, thumbnail, date, fix) 
-								VALUES ($btype, '$title', '$content', $userIndex, '$thumbnail', '$currentDateTime', $fix)";
+        return $bindex;
+    }
 
-		$query 				= $this->db->query($sql);
-		$bindex 			= $this->db->insert_id();
-		$this->db->trans_complete();
+    public function delete($index) {
 
-		if($files != null) {
+        $user               = $this->session->userdata('user');
+        if($user == null)
+            throw new RequireLoginException();
 
-			foreach($files as $file)
-				$this->addFile($bindex, $file['title'], $file['path'], $file['ident']);
-		}
+        $userIndex          = $user['idx'];
+        $this->db->trans_begin();
+        $sql                = "SELECT * FROM boards WHERE idx = $index AND deleted = 0 LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		return $bindex;
-	}
+        if($query->num_rows() == 0)
+            throw new Exception('게시글을 찾을 수 없습니다.');
 
-	public function delete($index) {
+        $row                = $query->row_array();
+        if(intval($row['user']) != $user['idx'] && $user['admin'] === false)
+            throw new Exception('권한이 없습니다.');
 
-		$user 				= $this->session->userdata('user');
-		if($user == null)
-			throw new RequireLoginException();
+        $this->db->trans_begin();
+        $sql                = "UPDATE boards SET deleted = 1 WHERE idx = $index AND deleted = 0 AND user = $userIndex LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		$userIndex			= $user['idx'];
-		$this->db->trans_begin();
-		$sql 				= "SELECT * FROM boards WHERE idx = $index AND deleted = 0 LIMIT 1";
-		$query 				= $this->db->query($sql);
-		$this->db->trans_complete();
+        return true;
+    }
 
-		if($query->num_rows() == 0)
-			throw new Exception('게시글을 찾을 수 없습니다.');
+    public function modify($btype, $bindex, $title, $content, $files, $thumbnail = null, $fix = false) {
 
-		$row 				= $query->row_array();
-		if(intval($row['user']) != $user['idx'] && $user['admin'] === false)
-			throw new Exception('권한이 없습니다.');
+        $user               = $this->session->userdata('user');
+        if($user == null)
+            throw new RequireLoginException();
 
-		$this->db->trans_begin();
-		$sql 				= "UPDATE boards SET deleted = 1 WHERE idx = $index AND deleted = 0 AND user = $userIndex LIMIT 1";
-		$query 				= $this->db->query($sql);
-		$this->db->trans_complete();
+        if(mb_strlen($title) == 0)
+            throw new Exception('제목을 입력하세요');
 
-		return true;
-	}
+        if(mb_strlen($content) == 0)
+            throw new Exception('내용을 입력하세요');
 
-	public function modify($btype, $bindex, $title, $content, $files, $thumbnail = null, $fix = false) {
+        if($this->exists($btype) == false)
+            throw new Exception('존재하지 않는 게시판입니다.');
 
-		$user 				= $this->session->userdata('user');
-		if($user == null)
-			throw new RequireLoginException();
+        if($this->existsBoard($bindex) == false)
+            throw new Exception('존재하지 않는 게시물입니다.');
 
-		if(mb_strlen($title) == 0)
-			throw new Exception('제목을 입력하세요');
+        if(is_string($btype))
+            $btype          = $this->bname2Type($btype);
 
-		if(mb_strlen($content) == 0)
-			throw new Exception('내용을 입력하세요');
+        $userIndex          = $user['idx'];
+        $fix                = $user['admin'] ? intval($fix) : 0;
 
-		if($this->exists($btype) == false)
-			throw new Exception('존재하지 않는 게시판입니다.');
+        if($this->isPostable($content) == false)
+            throw new Exception('게시할 수 없습니다.');
 
-		if($this->existsBoard($bindex) == false)
-			throw new Exception('존재하지 않는 게시물입니다.');
+        $this->db->trans_begin();
+        $sql                =  "UPDATE boards SET title = '$title', content = '$content', thumbnail = '$thumbnail', fix = $fix
+                                WHERE idx = $bindex AND user = ${user['idx']} LIMIT 1";
+        $query              = $this->db->query($sql);
+        $this->db->trans_complete();
 
-		if(is_string($btype))
-			$btype 			= $this->bname2Type($btype);
+        $this->file_model->clear($bindex);
+        if($files != null) {
 
-		$userIndex			= $user['idx'];
-		$fix 				= $user['admin'] ? intval($fix) : 0;
+            foreach($files as $file)
+                $this->addFile($bindex, $file['title'], $file['path'], $file['ident']);
+        }
 
-		if($this->isPostable($content) == false)
-			throw new Exception('게시할 수 없습니다.');
+        return $bindex;
+    }
 
-		$this->db->trans_begin();
-		$sql 				=  "UPDATE boards SET title = '$title', content = '$content', thumbnail = '$thumbnail', fix = $fix
-								WHERE idx = $bindex AND user = $userIndex LIMIT 1";
-		$query 				= $this->db->query($sql);
-		$this->db->trans_complete();
+    public function showBoard($dbname, $mode, $index, $option = array(), $parameters = array()) {
 
-		$this->file_model->clear($bindex);
-		if($files != null) {
+        if(isset($option['thumbnail']) == false)
+            $option['thumbnail']                = false;
 
-			foreach($files as $file)
-				$this->addFile($bindex, $file['title'], $file['path'], $file['ident']);
-		}
+        if(isset($option['viewname']) == false)
+            $option['viewname']                 = array();
 
-		return $bindex;
-	}
+        if(isset($option['viewname']['read']) == false)
+            $option['viewname']['read']         = $this->baseform_model->isMobile() ? array('mobile/board/readform/readform_view', 'partition/readform/readform_view_js') : 
+                                                                                      array('readform_view', 'partition/readform/readform_view_js');
 
-	public function showBoard($dbname, $mode, $index, $option = array(), $parameters = array()) {
+        if(isset($option['viewname']['write']) == false)
+            $option['viewname']['write']        = $this->baseform_model->isMobile() ? array('mobile/board/writeform/writeform_view', 'partition/writeform/writeform_fileset_js', 'partition/writeform/writeform_upload_board_js') : 
+                                                                                      array('writeform_view', 'partition/writeform/writeform_fileset_js', 'partition/writeform/writeform_upload_board_js');
 
-		if(isset($option['thumbnail']) == false)
-			$option['thumbnail']				= false;
+        if(isset($option['viewname']['modify']) == false)
+            $option['viewname']['modify']       = $this->baseform_model->isMobile() ? array('mobile/board/writeform/writeform_view', 'partition/writeform/writeform_fileset_js', 'partition/modifyform/modifyform_restore_js', 'partition/modifyform/modifyform_upload_board_js') : 
+                                                                                      array('writeform_view', 'partition/writeform/writeform_fileset_js', 'partition/modifyform/modifyform_restore_js', 'partition/modifyform/modifyform_upload_board_js');
 
-		if(isset($option['viewname']) == false)
-			$option['viewname']					= array();
+        if(isset($option['viewname']['default']) == false)
+            $option['viewname']['default']      = $this->baseform_model->isMobile() ? array('mobile/board/listform/listform_view') : 
+                                                                                      array('listform_view', 'partition/listform/listform_table_view');
 
-		if(isset($option['viewname']['read']) == false)
-			$option['viewname']['read']			= $this->baseform_model->isMobile() ? array('mobile/board/readform/readform_view', 'partition/readform/readform_view_js') : 
-																					  array('readform_view', 'partition/readform/readform_view_js');
+        if(isset($option['pagetab']) == false)
+            $option['pagetab']                  = array();
 
-		if(isset($option['viewname']['write']) == false)
-			$option['viewname']['write']		= $this->baseform_model->isMobile() ? array('mobile/board/writeform/writeform_view', 'partition/writeform/writeform_fileset_js', 'partition/writeform/writeform_upload_board_js') : 
-																					  array('writeform_view', 'partition/writeform/writeform_fileset_js', 'partition/writeform/writeform_upload_board_js');
+        if(isset($option['pagetab']['maxViews']) == false)
+            $option['pagetab']['maxViews']      = $this->defViewSize;
 
-		if(isset($option['viewname']['modify']) == false)
-			$option['viewname']['modify']		= $this->baseform_model->isMobile() ? array('mobile/board/writeform/writeform_view', 'partition/writeform/writeform_fileset_js', 'partition/modifyform/modifyform_restore_js', 'partition/modifyform/modifyform_upload_board_js') : 
-																					  array('writeform_view', 'partition/writeform/writeform_fileset_js', 'partition/modifyform/modifyform_restore_js', 'partition/modifyform/modifyform_upload_board_js');
+        if(isset($option['pagetab']['maxTabs']) == false)
+            $option['pagetab']['maxTabs']       = $this->defTabSize;
 
-		if(isset($option['viewname']['default']) == false)
-			$option['viewname']['default']		= $this->baseform_model->isMobile() ? array('mobile/board/listform/listform_view') : 
-																					  array('listform_view', 'partition/listform/listform_table_view');
+        if(isset($option['search']) == false)
+            $option['search']                   = array();
 
-		if(isset($option['pagetab']) == false)
-			$option['pagetab']					= array();
+        if(isset($option['search']['filter']) == false)
+            $option['search']['filter']         = $this->_searchopt;
 
-		if(isset($option['pagetab']['maxViews']) == false)
-			$option['pagetab']['maxViews']		= $this->defViewSize;
 
-		if(isset($option['pagetab']['maxTabs']) == false)
-			$option['pagetab']['maxTabs']		= $this->defTabSize;
+        $user                                   = $this->session->userdata('user');
+        $parameters['user']                     = $user;
+        $parameters['dbname']                   = $dbname;
 
-		if(isset($option['search']) == false)
-			$option['search']					= array();
 
-		if(isset($option['search']['filter']) == false)
-			$option['search']['filter']			= $this->_searchopt;
+        try {
+            if($this->inspect($dbname, $mode) == false)
+                return;
 
+            switch($mode) {
 
-		$user 									= $this->session->userdata('user');
-		$parameters['user']						= $user;
-		$parameters['dbname']					= $dbname;
+                case 'read':
+                    $index                      = intval($this->input->get('index', true));
+                    $parameters['binfo']        = array('board' => $this->board_model->get($dbname, $index),
+                                                        'comments' => $this->comment_model->gets($index));
 
+                    $this->load->helper('simple_html_dom');
+                    $html                       = str_get_html($parameters['binfo']['board']['content']);
+                    foreach($html->find('.preview-videoimg') as $index => $element) {
 
-		try {
-			if($this->inspect($dbname, $mode) == false)
-				return;
+                        $element->outertext = $this->load->view($this->baseform_model->isMobile() ? 'mobile/board/readform/readform_video_view' : 'partition/readform/readform_video_view', 
+                                                                array('keycode' => $index, 'name' => $element->name, 'path' => base_url($element->path)), true);
+                    }
+                    $parameters['binfo']['board']['content'] = $html->save();
+                    break;
 
-			switch($mode) {
+                case 'write':
+                    $parameters['thumbnail']    = $option['thumbnail'];
+                    $parameters['maxUploadSize']= $this->maxUploadSize;
+                    break;
 
-				case 'read':
-					$index						= intval($this->input->get('index', true));
-					$parameters['binfo']		= array('board' => $this->board_model->get($dbname, $index),
-														'comments' => $this->comment_model->gets($index));
+                case 'modify':
+                    $index                      = intval($this->input->get('index', true));
+                    $board                      = $this->get($dbname, $index);
+                    if($this->session->userdata('user') == null)
+                        throw new RequireLoginException();
+                    if($board['own'] === false && $user['admin'] === false)
+                        throw new Exception('수정할 수 없습니다.');
 
-					$this->load->helper('simple_html_dom');
-					$html 						= str_get_html($parameters['binfo']['board']['content']);
-					foreach($html->find('.preview-videoimg') as $index => $element) {
+                    $parameters['board']        = $board;
+                    $parameters['index']        = $index;
+                    $parameters['thumbnail']    = $option['thumbnail'];
+                    $parameters['maxUploadSize']= $this->maxUploadSize;
+                    break;
 
-						$element->outertext = $this->load->view($this->baseform_model->isMobile() ? 'mobile/board/readform/readform_video_view' : 'partition/readform/readform_video_view', 
-																array('keycode' => $index, 'name' => $element->name, 'path' => base_url($element->path)), true);
-					}
-					$parameters['binfo']['board']['content'] = $html->save();
-					break;
+                default:
+                    $keyword                    = $this->input->get('keyword', true);
+                    $searchType                 = $this->input->get('searchType', true);
+                    $page                       = $this->input->get('page', true);
+                    if($page == false)
+                        $page                   = 1;
 
-				case 'write':
-					$parameters['thumbnail']	= $option['thumbnail'];
-					$parameters['maxUploadSize']= $this->maxUploadSize;
-					break;
+                    $parameters['page']         = json_encode($page);
+                    $parameters['boards']       = array_merge($this->getsFixed($dbname), 
+                                                              $this->gets($dbname, $option['pagetab']['maxViews'], ($page-1) * $option['pagetab']['maxViews'], $keyword, $searchType));
+                    $parameters['count']        = json_encode($this->count($dbname, $keyword, $searchType));
+                    $parameters['maxViews']     = json_encode($option['pagetab']['maxViews']);
+                    $parameters['maxTabs']      = json_encode($option['pagetab']['maxTabs']);
+                    $parameters['searchopt']    = $option['search']['filter'];
+                    $parameters['privilege']    = json_encode($this->privilege($dbname));
+                    $parameters['keyword']      = $keyword;
+                    $parameters['searchType']   = $searchType;
 
-				case 'modify':
-					$index 						= intval($this->input->get('index', true));
-					$board 						= $this->get($dbname, $index);
-					if($this->session->userdata('user') == null)
-						throw new RequireLoginException();
-					if($board['own'] === false && $user['admin'] === false)
-						throw new Exception('수정할 수 없습니다.');
+                    $mode                       = 'default';
+                    break;
+            }
 
-					$parameters['board']		= $board;
-					$parameters['index']		= $index;
-					$parameters['thumbnail']	= $option['thumbnail'];
-					$parameters['maxUploadSize']= $this->maxUploadSize;
-					break;
-
-				default:
-					$keyword					= $this->input->get('keyword', true);
-					$searchType					= $this->input->get('searchType', true);
-					$page 						= $this->input->get('page', true);
-					if($page == false)
-						$page 					= 1;
-
-					$parameters['page']			= json_encode($page);
-					$parameters['boards']		= array_merge($this->getsFixed($dbname), 
-															  $this->gets($dbname, $option['pagetab']['maxViews'], ($page-1) * $option['pagetab']['maxViews'], $keyword, $searchType));
-					$parameters['count']		= json_encode($this->count($dbname, $keyword, $searchType));
-					$parameters['maxViews']		= json_encode($option['pagetab']['maxViews']);
-					$parameters['maxTabs']		= json_encode($option['pagetab']['maxTabs']);
-					$parameters['searchopt']	= $option['search']['filter'];
-					$parameters['privilege']	= json_encode($this->privilege($dbname));
-					$parameters['keyword']		= $keyword;
-					$parameters['searchType']	= $searchType;
-
-					$mode 						= 'default';
-					break;
-			}
-
-			$customViews 						= $option['viewname'][$mode];
-			$this->baseform_model->loadView($customViews, null, $parameters);
-		} catch (Exception $e) {
-			
-			$this->inspectException($e);
-		}
-	}
+            $customViews                        = $option['viewname'][$mode];
+            $this->baseform_model->loadView($customViews, null, $parameters);
+        } catch (Exception $e) {
+            
+            $this->inspectException($e);
+        }
+    }
 }
