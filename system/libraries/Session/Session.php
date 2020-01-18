@@ -138,7 +138,7 @@ class CI_Session {
 			unset($_COOKIE[$this->_config['cookie_name']]);
 		}
 
-		session_start();
+		// session_start();
 
 		// Is session ID auto-regeneration configured? (ignoring ajax requests)
 		if ((empty($_SERVER['HTTP_X_REQUESTED_WITH']) OR strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest')
@@ -280,6 +280,7 @@ class CI_Session {
 		else
 		{
 			ini_set('session.name', $params['cookie_name']);
+			// ini_set('session.id', $params['cookie_name']);
 		}
 
 		isset($params['cookie_path']) OR $params['cookie_path'] = config_item('cookie_path');
@@ -311,12 +312,12 @@ class CI_Session {
 		$this->_config = $params;
 
 		// Security is king
-		ini_set('session.use_trans_sid', 0);
-		ini_set('session.use_strict_mode', 1);
-		ini_set('session.use_cookies', 1);
-		ini_set('session.use_only_cookies', 1);
-		ini_set('session.hash_function', 1);
-		ini_set('session.hash_bits_per_character', 4);
+		// ini_set('session.use_trans_sid', 0);
+		// ini_set('session.use_strict_mode', 1);
+		// ini_set('session.use_cookies', 1);
+		// ini_set('session.use_only_cookies', 1);
+		// ini_set('session.hash_function', 1);
+		// ini_set('session.hash_bits_per_character', 4);
 	}
 
 	// ------------------------------------------------------------------------
