@@ -1,5 +1,5 @@
 # triz-institute
-트리즈 혁신 연구소 홈페이지
+[트리즈 혁신 연구소 홈페이지](http://www.cshyeon.com/triz-institute)
 
 <p align="center">
   <img src="image/1.png">
