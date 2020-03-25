@@ -35,10 +35,10 @@
 		if(<?php echo json_encode($searchType); ?> != null)
 			$searchBox.type(<?php echo json_encode($searchType); ?>);
 
-		let pagetab_opt		= {first: '<?php echo base_url('assets/images/icon_first.gif'); ?>',
-							   prev: '<?php echo base_url('assets/images/icon_prev.gif'); ?>',
-							   last: '<?php echo base_url('assets/images/icon_last.gif'); ?>',
-							   next: '<?php echo base_url('assets/images/icon_next.gif'); ?>',};
+		let pagetab_opt		= {first: '<?php echo cdn('assets/image/icon_first.gif'); ?>',
+							   prev: '<?php echo cdn('assets/image/icon_prev.gif'); ?>',
+							   last: '<?php echo cdn('assets/image/icon_last.gif'); ?>',
+							   next: '<?php echo cdn('assets/image/icon_next.gif'); ?>',};
 		let $pagetab 			= $('#page-tab').pagetab({maxTabs: <?php echo $maxTabs; ?>, maxViews: <?php echo $maxViews; ?>, image: pagetab_opt, callback: function (page) {
 
 			var href			= '?page=' + page;

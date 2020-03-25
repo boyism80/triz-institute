@@ -11,7 +11,7 @@
 	<p><font style="font-weight: bold;">아니면 누구나 교육을 통해</font> 얻을 수 있는 특성인가?</p>
 </div>
 <div class="main-content">
-	<img class="content-img" src="<?php echo base_url(); ?>assets/images/intro/greeting/about01.png">
+	<img class="content-img" src="<?php echo cdn('assets/image/intro/greeting/about01.png'); ?>">
 	<p>
 		창의적 문제해결 방법인 <font class="highlight-color">트리즈(TRIZ)</font>라는 이름은 창의성은 과학이고
 		교육을 통해 누구나 창의적이 될 수 있다는 철학아래 만들어 졌습니다. 트리즈 이름은 문제를 분석하고 해결해 나가는 과정을
@@ -41,7 +41,7 @@
 	<br> <br>
 	<div class="highlight-color" align="right" style="font-weight: bold; font-size: 18px;">
 		<span>트리즈혁신연구소 소장</span>
-		<img src="<?php echo base_url(); ?>assets/images/intro/greeting/about02.png" style="margin-bottom: 10px;">
+		<img src="<?php echo cdn('assets/image/intro/greeting/about02.png'); ?>" style="margin-bottom: 10px;">
 	</div>
 </div>
 </div>

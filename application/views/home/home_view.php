@@ -70,9 +70,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											   						  	  controller: true,
 											   						  	  interval: 2000, });
 
-		var $bannerController			= $('.item-wrap[banner] .play-controller').playController({ play: '<?php echo base_url(); ?>assets/images/home/icon_play.png', 
-													   					 							pause: '<?php echo base_url(); ?>assets/images/home/icon_pause.png', 
-													   					 							active: '<?php echo base_url(); ?>assets/images/home/icon_active.png'}, function (activated) {
+		var $bannerController			= $('.item-wrap[banner] .play-controller').playController({ play: '<?php echo cdn('assets/image/home/icon_play.png'); ?>', 
+													   					 							pause: '<?php echo cdn('assets/image/home/icon_pause.png'); ?>', 
+													   					 							active: '<?php echo cdn('assets/image/home/icon_active.png'); ?>'}, function (activated) {
 										
 																																						   					 	if(activated)
 																																						   					 		$banner.run();
@@ -156,28 +156,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="header">
 			<div class="background-list">
 				<span class="button-arrow" left>
-					<img src="<?php echo base_url(); ?>assets/images/home/navigation button left.png">
+					<img src="<?php echo cdn('assets/image/home/navigation button left.png'); ?>">
 				</span>
 				<div class="image-container">
 					<ul class="images">
 						<li class="item">
-							<img src="<?php echo base_url('assets/images/home/backgrounds/background_01.jpg'); ?>">
+							<img src="<?php echo cdn('assets/image/home/backgrounds/background_01.jpg'); ?>">
 						</li>
 						<li class="item">
-							<img src="<?php echo base_url('assets/images/home/backgrounds/background_02.jpg'); ?>">
+							<img src="<?php echo cdn('assets/image/home/backgrounds/background_02.jpg'); ?>">
 						</li>
 						<li class="item">
-							<img src="<?php echo base_url('assets/images/home/backgrounds/background_03.jpg'); ?>">
+							<img src="<?php echo cdn('assets/image/home/backgrounds/background_03.jpg'); ?>">
 						</li>
 					</ul>
 				</div>
 				<span class="button-arrow" right>
-					<img src="<?php echo base_url('assets/images/home/navigation button right.png'); ?>">
+					<img src="<?php echo cdn('assets/image/home/navigation button right.png'); ?>">
 				</span>
 			</div>
 			<div class="section">
 				<a id="logo" href="<?php echo base_url(); ?>">
-					<img src="<?php echo base_url('assets/images/new_logo.png'); ?>">
+					<img src="<?php echo cdn('assets/image/new_logo.png'); ?>">
 				</a>
 				<div class="menutab">
 					<div id="basetab-ex"></div>
@@ -194,27 +194,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<ul class="images" style="margin: 0px auto;">
 							<li class="item">
 								<a href="<?php echo base_url('trizworld/intro'); ?>">
-									<img src="<?php echo base_url('assets/images/home/banner/banner_01.jpg'); ?>">
+									<img src="<?php echo cdn('assets/image/home/banner/banner_01.jpg'); ?>">
 								</a>
 							</li>
 							<li class="item">
 								<a href="<?php echo base_url('software/trizsoft'); ?>">
-									<img src="<?php echo base_url('assets/images/home/banner/banner_02.jpg'); ?>">
+									<img src="<?php echo cdn('assets/image/home/banner/banner_02.jpg'); ?>">
 								</a>
 							</li>
 							<li class="item">
 								<a href="<?php echo base_url('consulting/howto'); ?>">
-									<img src="<?php echo base_url('assets/images/home/banner/banner_03.jpg'); ?>">
+									<img src="<?php echo cdn('assets/image/home/banner/banner_03.jpg'); ?>">
 								</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="item-wrap" contact>
-					<img src="<?php echo base_url('assets/images/home/tap3.jpg'); ?>">
+					<img src="<?php echo cdn('assets/image/home/tap3.jpg'); ?>">
 					<a href="intro/location">
 						<span class="location">찾아오시는 길</span>
-						<img src="<?php echo base_url('assets/images/home/icon_contact.png'); ?>" style="position: relative; top: 6px; left: 55px; border: none;">
+						<img src="<?php echo cdn('assets/image/home/icon_contact.png'); ?>" style="position: relative; top: 6px; left: 55px; border: none;">
 					</a>
 				</div>
 			</div>

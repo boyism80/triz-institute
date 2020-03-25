@@ -1,1 +1,6 @@
-<img src="<?php echo base_url('assets/images/icon_disk.gif'); ?>">
+<?php
+	$ci = get_instance();
+	$ci->load->helper('cdn');
+?>
+
+<img src="<?php echo cdn('assets/image/icon_disk.gif'); ?>">

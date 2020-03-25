@@ -30,7 +30,7 @@
 				<div>기술시스템발전법칙이 포함된다.</div>
 			</li>
 		</ul>
-		<img src="<?php echo base_url('assets/images/trizworld/solution/solution of technique.png'); ?>" style="display: block; margin: 50px auto; width: 100%;">
+		<img src="<?php echo cdn('assets/image/trizworld/solution/solution of technique.png'); ?>" style="display: block; margin: 50px auto; width: 100%;">
 		<p>ARIZ를 실제 적용하는 과정에서 이 알고리즘이 가지고 있는 장점 외에도 추가 연구가 필요한 약한 부분도 있다는 것을 알게 되었다. 알츠슐러는 이런 고민을 자신의 제자들이 해결해 주기를 희망했으며 그의 많은 제자들이 그 뜻을 받아 계속 알고리즘을 연구하고 있다.</p>
 		<br />
 		<p class="highlight-color">※ 자료실로 이동하면 TRIZ에 대한 보다 전문적인 자료를 보실 수 있습니다.</p>

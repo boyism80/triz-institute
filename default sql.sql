@@ -190,7 +190,6 @@ pidx INT NOT NULL,
 path VARCHAR(256) NOT NULL,
 deleted TINYINT NOT NULL DEFAULT 0,
 FOREIGN KEY (pidx) REFERENCES publication (idx));
-user
 
 INSERT INTO boards (btype, title, content, user, date) VALUES (
 1, 'ㅇㅇ', 'ㅇㅇㅋ<div><img src="http://210.93.55.71/triz-institute/renewal/assets/uploads/image-files/f78f2318df443a5008fa53ccd4d30e8c.png"></div>', 1, '2016-12-27 16:06:36');

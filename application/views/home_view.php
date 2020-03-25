@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <html lang="en">
 <head>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.home.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.home.js'); ?>"></script>
 <script type="text/javascript">
 
 
@@ -23,14 +23,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	} );
 </script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.home.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.home.css'); ?>">
 </head>
 <body>
 	<div id="wrap">
 		<div id="header-ex">
 			<div class="section">
 				<a class="logo" href="<?php echo base_url() ?>">
-					<img src="<?php echo base_url(); ?>assets/images/logo.png">
+					<img src="<?php echo cdn('assets/image/logo.png'); ?>">
 				</a>
 				<div id="basetab-ex"></div>
 				<div id="menutab-ex"></div>

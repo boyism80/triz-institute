@@ -1,1 +1,1 @@
-<img src="<?php echo base_url(); ?>assets/images/intro/organization/organization-chart.png" style="width: 100%;">
+<img src="<?php echo cdn('assets/image/intro/organization/organization-chart.png'); ?>" style="width: 100%;">

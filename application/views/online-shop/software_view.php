@@ -32,10 +32,10 @@
 		});
 
 		// pagetab
-		var pimages					= {	first: 		'<?php echo base_url(); ?>assets/images/icon_first.gif',
-							   			prev:  		'<?php echo base_url(); ?>assets/images/icon_prev.gif',
-							   			last:  		'<?php echo base_url(); ?>assets/images/icon_last.gif',
-							   			next:  		'<?php echo base_url(); ?>assets/images/icon_next.gif',};
+		var pimages					= {	first: 		'<?php echo cdn('assets/image/icon_first.gif'); ?>',
+							   			prev:  		'<?php echo cdn('assets/image/icon_prev.gif'); ?>',
+							   			last:  		'<?php echo cdn('assets/image/icon_last.gif'); ?>',
+							   			next:  		'<?php echo cdn('assets/image/icon_next.gif'); ?>',};
 		var callback				= function (page) {
 
 											var href            = '?page=' + page;

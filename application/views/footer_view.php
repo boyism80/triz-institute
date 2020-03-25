@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+$ci = get_instance();
+$ci->load->helper('cdn');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,25 +13,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="section">
 				<ul class="icon-list">
 					<li class="icon-item">
-						<img src="<?php echo base_url(); ?>assets/images/footer/link01.png">
+						<img src="<?php echo cdn('assets/image/footer/link01.png'); ?>">
 					</li>
 					<li class="icon-item">
-						<img src="<?php echo base_url(); ?>assets/images/footer/link02.png">
+						<img src="<?php echo cdn('assets/image/footer/link02.png'); ?>">
 					</li>
 					<li class="icon-item">
-						<img src="<?php echo base_url(); ?>assets/images/footer/link03.png">
+						<img src="<?php echo cdn('assets/image/footer/link03.png'); ?>">
 					</li>
 					<li class="icon-item">
-						<img src="<?php echo base_url(); ?>assets/images/footer/link04.png">
+						<img src="<?php echo cdn('assets/image/footer/link04.png'); ?>">
 					</li>
 					<li class="icon-item">
-						<img src="<?php echo base_url(); ?>assets/images/footer/link05.png">
+						<img src="<?php echo cdn('assets/image/footer/link05.png'); ?>">
 					</li>
 					<li class="icon-item">
-						<img src="<?php echo base_url(); ?>assets/images/footer/link06.png">
+						<img src="<?php echo cdn('assets/image/footer/link06.png'); ?>">
 					</li>
 					<li class="icon-item">
-						<img src="<?php echo base_url(); ?>assets/images/footer/link07.png">
+						<img src="<?php echo cdn('assets/image/footer/link07.png'); ?>">
 					</li>
 				</ul>
 			</div>

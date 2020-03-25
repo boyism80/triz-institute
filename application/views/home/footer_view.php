@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 																			   interval: 5000, 
 																			});
 
-		var $iconBannerController 		= $('.item-wrap[icon-banner] .play-controller').playController({play: '<?php echo base_url(); ?>assets/images/home/icon_play.png', 
-											   					 	  									pause: '<?php echo base_url(); ?>assets/images/home/icon_pause.png', 
-		  										   					 	  								active: '<?php echo base_url(); ?>assets/images/home/icon_active.png'}, function (activated) {
+		var $iconBannerController 		= $('.item-wrap[icon-banner] .play-controller').playController({play: '<?php echo cdn('assets/image/home/icon_play.png'); ?>', 
+											   					 	  									pause: '<?php echo cdn('assets/image/home/icon_pause.png'); ?>', 
+		  										   					 	  								active: '<?php echo cdn('assets/image/home/icon_active.png'); ?>'}, function (activated) {
 		  
 																																						   					 	  	if(activated)
 																																						   					 	  		$iconBanner.run();
@@ -28,10 +28,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$iconBanner.prev();
 		} ).bind('mousedown', function () {
 
-			$(this).children('img').attr('src', '<?php echo base_url(); ?>assets/images/home/switch left active.png');
+			$(this).children('img').attr('src', '<?php echo cdn('assets/image/home/switch left active.png'); ?>');
 		} ).bind('mouseup', function () {
 
-			$(this).children('img').attr('src', '<?php echo base_url(); ?>assets/images/home/switch left.png');
+			$(this).children('img').attr('src', '<?php echo cdn('assets/image/home/switch left.png'); ?>');
 		}).trigger('mouseup');
 
 
@@ -40,14 +40,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$iconBanner.next();
 		} ).bind('mousedown', function () {
 
-			$(this).children('img').attr('src', '<?php echo base_url(); ?>assets/images/home/switch right active.png');
+			$(this).children('img').attr('src', '<?php echo cdn('assets/image/home/switch right active.png'); ?>');
 		} ).bind('mouseup', function () {
 
-			$(this).children('img').attr('src', '<?php echo base_url(); ?>assets/images/home/switch right.png');
+			$(this).children('img').attr('src', '<?php echo cdn('assets/image/home/switch right.png'); ?>');
 		}).trigger('mouseup');
 	} );
 </script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/home/style.footer.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/home/style.footer.css'); ?>">
 </head>
 <body>
 	<div class="footer">
@@ -82,37 +82,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<ul class="images" style="margin: 0px auto;">
 						<li class="item">
 							<a>
-								<img src="<?php echo base_url(); ?>assets/images/home/partners/icon_p_01.jpg">
+								<img src="<?php echo cdn('assets/image/home/partners/icon_p_01.jpg'); ?>">
 							</a>
 						</li>
 						<li class="item">
 							<a>
-								<img src="<?php echo base_url(); ?>assets/images/home/partners/icon_p_02.jpg">
+								<img src="<?php echo cdn('assets/image/home/partners/icon_p_02.jpg'); ?>">
 							</a>
 						</li>
 						<li class="item">
 							<a>
-								<img src="<?php echo base_url(); ?>assets/images/home/partners/icon_p_03.jpg">
+								<img src="<?php echo cdn('assets/image/home/partners/icon_p_03.jpg'); ?>">
 							</a>
 						</li>
 						<li class="item">
 							<a>
-								<img src="<?php echo base_url(); ?>assets/images/home/partners/icon_p_04.jpg">
+								<img src="<?php echo cdn('assets/image/home/partners/icon_p_04.jpg'); ?>">
 							</a>
 						</li>
 						<li class="item">
 							<a>
-								<img src="<?php echo base_url(); ?>assets/images/home/partners/icon_p_05.jpg">
+								<img src="<?php echo cdn('assets/image/home/partners/icon_p_05.jpg'); ?>">
 							</a>
 						</li>
 						<li class="item">
 							<a>
-								<img src="<?php echo base_url(); ?>assets/images/home/partners/icon_p_06.jpg">
+								<img src="<?php echo cdn('assets/image/home/partners/icon_p_06.jpg'); ?>">
 							</a>
 						</li>
 						<li class="item">
 							<a>
-								<img src="<?php echo base_url(); ?>assets/images/home/partners/icon_p_07.jpg">
+								<img src="<?php echo cdn('assets/image/home/partners/icon_p_07.jpg'); ?>">
 							</a>
 						</li>
 					</ul>

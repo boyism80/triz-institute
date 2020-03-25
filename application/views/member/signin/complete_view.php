@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="signin-header">
 			<div class="top">
 				<span class="title">회원가입 완료</span>
-				<img class="state-image" src="<?php echo base_url(); ?>assets/images/member/signin/step_03.png" />
+				<img class="state-image" src="<?php echo cdn('assets/image/member/signin/step_03.png'); ?>" />
 			</div>
 			<div class="top">
 				<div class="desc">

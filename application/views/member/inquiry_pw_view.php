@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.content.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/member/jquery.inquiry_pw.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.content.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/member/jquery.inquiry_pw.js'); ?>"></script>
 <script type="text/javascript">
 
 	$(document).ready(function () {
@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	} );
 </script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.content.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/member/style.inquiry_pw.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.content.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/member/style.inquiry_pw.css'); ?>">
 </head>
 <body>
 	<div id="contents">

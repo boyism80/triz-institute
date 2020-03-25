@@ -20,7 +20,7 @@
                     <li>소프트웨어의 특징</li>
                 </ul>
                 <div class="content-group">
-                    <img alt="" src="<?php echo base_url('assets/images/software/software01.png'); ?>" style="float: right; width: 40%;">
+                    <img alt="" src="<?php echo cdn('assets/image/software/software01.png'); ?>" style="float: right; width: 40%;">
                     <div class="box" style="margin: 0px; width: 57%;">
                         <ul class="box-list">
                             <li>사용자들이 손쉽게 사용할 수 있도록 프로그램화되어 있어 바로 사용이 가능</li>
@@ -39,7 +39,7 @@
                     <li>소프트웨어 특징</li>
                 </ul>
                 <div class="content-group">
-                    <img alt="" src="<?php echo base_url('assets/images/software/software02.png'); ?>" style="float: right; width: 40%;">
+                    <img alt="" src="<?php echo cdn('assets/image/software/software02.png'); ?>" style="float: right; width: 40%;">
                     <div class="box" style="margin: 0px; width: 57%;">
                         <ul class="box-list">
                             <li>문제상황에 대한 자세한 정보를 찾을 수 있도록 가이드</li>
@@ -54,14 +54,14 @@
                 <ul class="default-list">
                     <li>I-TRIZ가 개발한 Anticipatory Failure Determination(AFD)을 적용하여 시스템 결함의 원인을 분석, 규명하며, 규명한 결합을 제거하도록 가이드해 주는 프로그램</li>
                 </ul>
-                <img alt="" src="<?php echo base_url('assets/images/software/software03.png'); ?>" style="display: block; margin: 10px auto; width: 100%;">
+                <img alt="" src="<?php echo cdn('assets/image/software/software03.png'); ?>" style="display: block; margin: 10px auto; width: 100%;">
             </li>
             <li style="float: right; width: 48%;">
                 <div class="highlight-color">4. FAILURE PREDICTION</div>
                 <ul class="default-list">
                     <li>I-TRIZ가 개발한 Anticipatory Failure Determination(AFD)을 적용하여 시스템이나, 제품, 기술 공정 등에서 발생 가능할 수 있는 결함을 예측하고 제거하는 프로그램</li>
                 </ul>
-                <img alt="" src="<?php echo base_url('assets/images/software/software04.png'); ?>" style="display: block; margin: 10px auto; width: 100%;">
+                <img alt="" src="<?php echo cdn('assets/image/software/software04.png'); ?>" style="display: block; margin: 10px auto; width: 100%;">
             </li>
         </ul>
         <div class="content-group">

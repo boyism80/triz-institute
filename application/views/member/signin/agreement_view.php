@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.content.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/member/signin/jquery.agreement.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.content.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/member/signin/jquery.agreement.js'); ?>"></script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.content.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/member/signin/style.signin.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/member/signin/style.agreement.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.content.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/member/signin/style.signin.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/member/signin/style.agreement.css'); ?>">
 </head>
 <body>
 	<div id="contents">
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="signin-header">
 				<div class="top">
 					<span class="title">회원약관 동의</span>
-					<img class="state-image" src="<?php echo base_url(); ?>assets/images/member/signin/step_01.png" style="float: right;"/>
+					<img class="state-image" src="<?php echo cdn('assets/image/member/signin/step_01.png'); ?>" style="float: right;"/>
 				</div>
 				<div class="bottom">
 					<div class="desc">

@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="left-content">
 				<div id="side-menu" class="menutab"></div>
 				<div class="contatct">
-					<img src="<?php echo base_url('assets/images/home/tap3.jpg'); ?>">
+					<img src="<?php echo cdn('assets/image/home/tap3.jpg'); ?>">
 				</div>
 			</div>
 			<div class="right-content">

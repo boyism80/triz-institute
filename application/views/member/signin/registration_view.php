@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="signin-header">
 				<div class="top">
 					<span class="title">회원약관 동의</span>
-					<img class="state-image" src="<?php echo base_url('assets/images/member/signin/step_02.png'); ?>" />
+					<img class="state-image" src="<?php echo cdn('assets/image/member/signin/step_02.png'); ?>" />
 				</div>
 				<div class="bottom">
 					<div class="desc">

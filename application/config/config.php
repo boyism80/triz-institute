@@ -26,6 +26,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 $config['base_url'] .= "://" . $_SERVER['HTTP_HOST'];
 $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
+$config['cdn_enabled'] = true;
+$config['cdn_domain'] = 'd14j5h06z42h7h.cloudfront.net/http/triz-institute';
+$config['cdn_protocol'] = 'http';
+
 
 /*
 |--------------------------------------------------------------------------

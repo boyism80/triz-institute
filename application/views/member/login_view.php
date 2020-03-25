@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="contents">
 		<div class="login-main">
 			<div class="login-left">
-				<img src="<?php echo base_url('assets/images/member/login/member login.png'); ?>" />
+				<img src="<?php echo cdn('assets/image/member/login/member login.png'); ?>" />
 			</div>
 			<div class="login-right">
 				<div class="welcome-box">

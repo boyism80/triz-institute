@@ -19,7 +19,7 @@
 		<div class="content-group-title">TRIZ란 무엇인가?</div>
 		<div class="content-group">
 			<div class="content-group-box">
-				<img class="content-image" style="float: right;" src="<?php echo base_url('assets/images/trizworld/intro/G.altshuller'); ?>.png">
+				<img class="content-image" style="float: right;" src="<?php echo cdn('assets/image/trizworld/intro/G.altshuller'); ?>.png">
 				<p>TRIZ는 러시아의 과학자이자 발명가은 G.알츠슐러(1926~1998)에 의해 1940년대 창안되고 그
 					제자들에 의해 발전한 창의적인 문제의 해결 및 발명의 원리를 밝히고 있는 이론이다.
 				</p>
@@ -31,12 +31,12 @@
 					분석한 후 창조적 문제 해결의 원리로 구체화하였다.
 				</p>
 			</div>
-			<img class="content-image" style="width: 100%; display: block; margin: 20px auto" src="<?php echo base_url('assets/images/trizworld/intro/introtriz_content_01.png'); ?>">
+			<img class="content-image" style="width: 100%; display: block; margin: 20px auto" src="<?php echo cdn('assets/image/trizworld/intro/introtriz_content_01.png'); ?>">
 		</div>
 		<p>여기에 철학적 사고 방법론으로서의 변증법이 가지고 있는 주요 개념과 카테고리들을 포함하여 창의적인 문제를
 			해결하기 위한 구체적이고 과학적인방법론으로 발전하게 된다.</p> <br>
 			<div class="content-group-box">
-				<img class="content-image" src="<?php echo base_url('assets/images/trizworld/intro/introtriz_content_02.png'); ?>" style="float: left; width: 130px;">
+				<img class="content-image" src="<?php echo cdn('assets/image/trizworld/intro/introtriz_content_02.png'); ?>" style="float: left; width: 130px;">
 				<p>TRIZ는 통합적 문제해결 방법론이자 창의적으로 사고하는 사고의 방법론으로</p>
 				<p>과학기술분야에서의 문제해결과 기술 개발 뿐 아니라 교육, 마케팅, 경영, 의료, 창작 등</p>
 				<p>인간 활동의 전 분야에서 혁신적이고 창의적인 활동을 가능하게 만들어 주고 있다.</p>
@@ -49,7 +49,7 @@
 					<div class="subtitle">01. 시스템성. 시스템적 사고</div>
 					<p>시스템적 사고는 모든 시간과 공간을 아울러 전 차원적으로 사고하게 만든다.</p>
 					<p>이와 같은 능력은 인간이 기술 분야를 포함한 모든 분야에서 행하는 창조적 활동의 토대이다.</p>
-					<img class="content-image" src="<?php echo base_url('assets/images/trizworld/intro/introtriz_content_03.png'); ?>" style="width: 100%; display: block; margin: 20px auto">
+					<img class="content-image" src="<?php echo cdn('assets/image/trizworld/intro/introtriz_content_03.png'); ?>" style="width: 100%; display: block; margin: 20px auto">
 					<p>
 						지금 우리의 대상이 되는 시스템을 바라 볼 때는 반드시 미래의 시점에서 시스템을 보아야 한다. 그래야만
 						현재에 실수를 하지 않는다. 과거의 시스템에서 시스템을 보아야 한다. 그래야만 미래에 실수를 하지 않는다.
@@ -99,7 +99,7 @@
 				<li class="content-group">
 					<div class="subtitle">03. 이상성. 이상적 시스템. 이상적 해결</div>
 					<div class="content-group-box">
-						<img class="content-image" src="<?php echo base_url('assets/images/trizworld/intro/introtriz_content_04.png'); ?>"
+						<img class="content-image" src="<?php echo cdn('assets/image/trizworld/intro/introtriz_content_04.png'); ?>"
 						style="float: right; width: 200px;">
 						<p>
 							모든 기술 시스템은 그 요구가 증대됨에 따라 형태가 변하고 발전한다. 이렇게 발전하면서 시스템성은
@@ -127,7 +127,7 @@
 						만족시키는 창의적 해결안을 얻는 방법론을 제시한다는 것이다.
 					</p>
 					<div class="content-group-box">
-						<img class="content-image" src="<?php echo base_url('assets/images/trizworld/intro/introtriz_content_05.png'); ?>"
+						<img class="content-image" src="<?php echo cdn('assets/image/trizworld/intro/introtriz_content_05.png'); ?>"
 						style="float: right; width: 200px;">
 						<p>모순은 보편적으로 상위 시스템 측면에서 나타난다.</p>
 						<p>
@@ -141,7 +141,7 @@
 						<p>물리적 모순을 해결하는 방법은 다음 세 가지이다.</p>
 					</div>
 					<div class="content-group">
-						<img class="content-image" alt="" src="<?php echo base_url('assets/images/trizworld/intro/introtriz_content_06.png'); ?>" style="float: left;">
+						<img class="content-image" alt="" src="<?php echo cdn('assets/image/trizworld/intro/introtriz_content_06.png'); ?>" style="float: left;">
 						<p>특히 기술적 모순의 차원에서 두 모순적 특성을 동시에 만족시키기 위한 방법으로 특허 분석을 통거해 추출해낸 공통의 해결 원리가 40가지 발명원리이다.</p>
 						<p>이 40가지 발명원리를 잘 활용하면 모순적 상황을 해결하기 위한 아이디어를 얻을 수 있다.</p>
 						<br>

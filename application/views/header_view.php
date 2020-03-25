@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="header">
 		<div class="section">
 			<a class="logo" href="<?php echo base_url(); ?>">
-				<img src="<?php echo base_url('assets/images/new_logo_2.png'); ?>">
+				<img src="<?php echo cdn('assets/image/new_logo_2.png'); ?>">
 			</a>
 			<div id="basetab"></div>
 			<div id="menutab"></div>
